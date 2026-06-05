@@ -132,15 +132,50 @@
   .merch-bar-link:hover { color: var(--white); }
   .merch-iframe-wrap iframe {
     width: 100%;
-    height: 900px;
+    height: 1400px;
     border: none;
     display: block;
   }
+  .merch-mobile-fallback {
+    display: none;
+    padding: 48px 32px;
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .merch-mobile-fallback-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .merch-mobile-fallback-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .merch-mobile-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 16px 36px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .merch-mobile-btn:hover { background: var(--white); }
 
   @media (max-width: 960px) {
     .store-body { padding: 60px 24px; }
     .downloads-grid { grid-template-columns: 1fr; }
-    .merch-iframe-wrap iframe { height: 700px; }
+    .merch-iframe-wrap iframe { display: none; }
+    .merch-mobile-fallback { display: block; }
   }
 </style>
 </head>
@@ -229,6 +264,11 @@
         title="32 Hour Group Merch Store"
         loading="lazy">
       </iframe>
+      <div class="merch-mobile-fallback">
+        <div class="merch-mobile-fallback-title">Shop the Collection</div>
+        <p class="merch-mobile-fallback-text">Browse tees, hoodies, mugs, stickers and more in the official 32 Hour Group store.</p>
+        <a href="https://32hourgroup.creator-spring.com/" target="_blank" class="merch-mobile-btn">Open Store ↗</a>
+      </div>
     </div>
   </div>
 
