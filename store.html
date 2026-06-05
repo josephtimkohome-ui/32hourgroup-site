@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Store — 32 Hour Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .store-body { max-width: 1200px; margin: 0 auto; padding: 100px 56px; }
+  .store-intro { max-width: 640px; margin-bottom: 80px; }
+  .store-intro-text { font-size: 19px; font-weight: 300; line-height: 1.9; color: var(--light); }
+
+  /* CATEGORY */
+  .store-category { margin-bottom: 80px; }
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+  .category-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* PRODUCTS */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
+  .product-image {
+    aspect-ratio: 1;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .product-image-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .product-icon { font-size: 48px; opacity: 0.6; }
+  .product-image-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .product-seal-overlay {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    background: var(--black);
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+  .product-info { padding: 28px 24px; flex: 1; display: flex; flex-direction: column; }
+  .product-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 10px;
+  }
+  .product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .product-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey);
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--gold);
+  }
+  .product-price.free { color: var(--grey); }
+  .product-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 8px 18px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .product-btn:hover { background: var(--white); }
+  .product-btn.outlined {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+  }
+  .product-btn.outlined:hover { background: var(--gold); color: var(--black); }
+  .product-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 4px 10px;
+  }
+
+  /* COMING SOON */
+  .coming-soon {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 64px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  .cs-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .cs-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--grey);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 960px) {
+    .store-body { padding: 80px 24px; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .coming-soon { padding: 40px 24px; }
+  }
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html" class="active">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta">Begin Initiation</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-tag">Resources & Merch</div>
+  <h1 class="page-title">The Store</h1>
+  <p class="page-subtitle">Tools, resources, and artifacts for practitioners of the Doctrine. Everything here is designed to deepen the practice — not to perform it.</p>
+</section>
+
+<div class="doctrine-strip">
+  <div class="strip-track">
+    <div class="strip-item">Practice Quietly</div><div class="strip-item">Deepen the Doctrine</div><div class="strip-item">Tools for Intentional Living</div><div class="strip-item">Not Performance</div><div class="strip-item">Practice Quietly</div><div class="strip-item">Deepen the Doctrine</div><div class="strip-item">Tools for Intentional Living</div><div class="strip-item">Not Performance</div>
+  </div>
+</div>
+
+<div class="store-body">
+
+  <div class="store-intro reveal">
+    <div class="section-label">Before You Browse</div>
+    <h2 class="section-title">What This Is For</h2>
+    <p class="store-intro-text">Nothing here is required. The Doctrine is free. The community is free. These resources exist for those who want physical or digital anchors for their practice — objects and tools that carry the Doctrine's intention into daily life.</p>
+  </div>
+
+  <!-- FREE RESOURCES -->
+  <div class="store-category reveal">
+    <div class="category-header">
+      <div class="category-title">Free Resources</div>
+      <div class="category-label">Available to All Initiates</div>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-image" style="background: #0f0f0f;">
+          <div class="product-badge">Free</div>
+          <div class="product-image-inner">
+            <div class="product-icon">📋</div>
+            <div class="product-image-label">PDF Download</div>
+          </div>
+          <div class="product-seal-overlay">32</div>
+        </div>
+        <div class="product-info">
+          <div class="product-tag">Digital · PDF</div>
+          <div class="product-name">Cycle Reflection Worksheet</div>
+          <p class="product-desc">The primary practice tool of the Doctrine. Rate each domain, name what was neglected, complete the Sufficiency Statement. One per cycle.</p>
+          <div class="product-footer">
+            <div class="product-price free">Free</div>
+            <a href="#" class="product-btn">Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image" style="background: #0f0f0f;">
+          <div class="product-badge">Free</div>
+          <div class="product-image-inner">
+            <div class="product-icon">📖</div>
+            <div class="product-image-label">PDF Download</div>
+          </div>
+          <div class="product-seal-overlay">32</div>
+        </div>
+        <div class="product-info">
+          <div class="product-tag">Digital · PDF</div>
+          <div class="product-name">Initiate Welcome Packet</div>
+          <p class="product-desc">The complete onboarding document — the Doctrine, the Five Domains, the Standard Cycle, daily practices, your rights, and your vows.</p>
+          <div class="product-footer">
+            <div class="product-price free">Free</div>
+            <a href="#" class="product-btn">Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image" style="background: #0f0f0f;">
+          <div class="product-badge">Free</div>
+          <div class="product-image-inner">
+            <div class="product-icon">📄</div>
+            <div class="product-image-label">PDF Download</div>
+          </div>
+          <div class="product-seal-overlay">32</div>
+        </div>
+        <div class="product-info">
+          <div class="product-tag">Digital · PDF</div>
+          <div class="product-name">The Manifesto</div>
+          <p class="product-desc">The full Doctrine of the 32-Hour Day. Six sections. From the inheritance of the industrial clock to the invitation to live accordingly.</p>
+          <div class="product-footer">
+            <div class="product-price free">Free</div>
+            <a href="manifesto.html" class="product-btn outlined">Read Online</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHYSICAL -->
+  <div class="store-category reveal">
+    <div class="category-header">
+      <div class="category-title">Physical Artifacts</div>
+      <div class="category-label">Coming Soon</div>
+    </div>
+    <div class="products-grid">
+      <div class="product-card" style="opacity: 0.5;">
+        <div class="product-image" style="background: #0f0f0f;">
+          <div class="product-image-inner">
+            <div class="product-icon">👕</div>
+            <div class="product-image-label">Apparel</div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-tag">Coming Soon · Apparel</div>
+          <div class="product-name">The Doctrine Tee</div>
+          <p class="product-desc">A day is 32 hours. Minimal. Black. For those who practice quietly and let their life speak.</p>
+          <div class="product-footer">
+            <div class="product-price">TBA</div>
+            <a href="#" class="product-btn outlined" style="pointer-events: none; opacity: 0.5;">Notify Me</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="opacity: 0.5;">
+        <div class="product-image" style="background: #0f0f0f;">
+          <div class="product-image-inner">
+            <div class="product-icon">📓</div>
+            <div class="product-image-label">Journal</div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-tag">Coming Soon · Physical</div>
+          <div class="product-name">The Cycle Journal</div>
+          <p class="product-desc">A printed journal built around the Five Domains and the Cycle Reflection Worksheet. 13 cycles per journal.</p>
+          <div class="product-footer">
+            <div class="product-price">TBA</div>
+            <a href="#" class="product-btn outlined" style="pointer-events: none; opacity: 0.5;">Notify Me</a>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="opacity: 0.5;">
+        <div class="product-image" style="background: #0f0f0f;">
+          <div class="product-image-inner">
+            <div class="product-icon">🪙</div>
+            <div class="product-image-label">Challenge Coin</div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-tag">Coming Soon · Artifact</div>
+          <div class="product-name">The 32 Coin</div>
+          <p class="product-desc">A physical token of the Doctrine. The seal of the 32-Hour Day, cast in metal. For those who carry the practice with them.</p>
+          <div class="product-footer">
+            <div class="product-price">TBA</div>
+            <a href="#" class="product-btn outlined" style="pointer-events: none; opacity: 0.5;">Notify Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMING SOON CTA -->
+  <div class="coming-soon reveal">
+    <div class="cs-title">More Coming Soon</div>
+    <p class="cs-text">Join the community to be the first to know when new resources and artifacts drop. Initiates get early access.</p>
+    <a href="initiation.html" class="btn-primary">Become an Initiate</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">32 Hour Group</a>
+  <ul class="footer-links">
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="initiation.html">Initiate</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 32 Hour Group</div>
+</footer>
+<script>
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+  document.querySelectorAll(".reveal").forEach(el => {
+    new IntersectionObserver((e) => e.forEach(en => { if (en.isIntersecting) en.target.classList.add("visible"); }), { threshold: 0.08 }).observe(el);
+  });
+</script>
+</body>
+</html>
