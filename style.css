@@ -366,13 +366,7 @@ footer {
   gap: 8px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  pointer-events: none;
   display: none;
-}
-.mobile-menu.open {
-  display: flex;
-  opacity: 1;
-  pointer-events: all;
 }
 .mobile-menu-links {
   list-style: none;
