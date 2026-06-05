@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Principles — 32 Hour Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .principles-body { max-width: 1200px; margin: 0 auto; padding: 100px 56px; }
+  .cycle-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 48px 0;
+  }
+  .cycle-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: left;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--gold-dim);
+  }
+  .cycle-table td {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--light);
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .cycle-table tr:hover td { background: var(--card); }
+  .domain-num-cell {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold-dim) !important;
+    width: 60px;
+  }
+  .domain-name-cell {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 22px !important;
+    letter-spacing: 2px;
+    color: var(--white) !important;
+  }
+  .hours-cell {
+    font-family: 'DM Mono', monospace !important;
+    font-size: 13px !important;
+    color: var(--gold) !important;
+    white-space: nowrap;
+  }
+  .domain-block {
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .domain-block:last-child { border-bottom: none; margin-bottom: 0; }
+  .domain-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 36px;
+  }
+  .domain-number-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px;
+    line-height: 1;
+    color: var(--border);
+    letter-spacing: 2px;
+  }
+  .domain-title-group {}
+  .domain-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+  }
+  .domain-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .domain-hours-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    background: var(--card);
+    border: 1px solid var(--gold-dim);
+    display: inline-block;
+    padding: 6px 14px;
+  }
+  .domain-body {
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--light);
+    max-width: 720px;
+    margin-bottom: 28px;
+  }
+  .domain-practices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 32px;
+  }
+  .practice-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    transition: border-color 0.3s;
+  }
+  .practice-card:hover { border-color: var(--gold-dim); }
+  .practice-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .practice-body {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey);
+  }
+  .intro-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  @media (max-width: 960px) {
+    .principles-body { padding: 80px 24px; }
+    .domain-practices { grid-template-columns: 1fr; }
+    .intro-block { grid-template-columns: 1fr; gap: 40px; }
+    .domain-header { grid-template-columns: 1fr; gap: 16px; }
+    .domain-number-big { font-size: 60px; }
+  }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html" class="active">Principles</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta">Begin Initiation</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-tag">The Framework</div>
+  <h1 class="page-title">The Five Domains</h1>
+  <p class="page-subtitle">A complete cycle honors all five. Not perfectly — completely. A cycle is broken when one domain is repeatedly ignored.</p>
+</section>
+
+<div class="doctrine-strip">
+  <div class="strip-track">
+    <div class="strip-item">Creation</div><div class="strip-item">Maintenance</div><div class="strip-item">Reflection</div><div class="strip-item">Connection</div><div class="strip-item">Rest</div><div class="strip-item">A Cycle Is Complete When All Five Are Honored</div><div class="strip-item">Creation</div><div class="strip-item">Maintenance</div><div class="strip-item">Reflection</div><div class="strip-item">Connection</div><div class="strip-item">Rest</div><div class="strip-item">A Cycle Is Complete When All Five Are Honored</div>
+  </div>
+</div>
+
+<div class="principles-body">
+
+  <div class="intro-block">
+    <div class="reveal">
+      <div class="section-label">The Standard 32-Hour Cycle</div>
+      <h2 class="section-title">Suggested Allocation</h2>
+      <p class="body-text">This cycle may span multiple calendar days. Because the world runs on 24 hours, cycles are flexible. You may split a cycle across several days, run smaller mini-cycles during busy periods, or repair neglected domains in the next cycle.</p>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <table class="cycle-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Domain</th>
+            <th>Purpose</th>
+            <th>Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="domain-num-cell">01</td>
+            <td class="domain-name-cell">Creation</td>
+            <td>Deep work, learning</td>
+            <td class="hours-cell">10–12 hrs</td>
+          </tr>
+          <tr>
+            <td class="domain-num-cell">02</td>
+            <td class="domain-name-cell">Maintenance</td>
+            <td>Health, admin</td>
+            <td class="hours-cell">4–6 hrs</td>
+          </tr>
+          <tr>
+            <td class="domain-num-cell">03</td>
+            <td class="domain-name-cell">Reflection</td>
+            <td>Review, planning</td>
+            <td class="hours-cell">2–3 hrs</td>
+          </tr>
+          <tr>
+            <td class="domain-num-cell">04</td>
+            <td class="domain-name-cell">Connection</td>
+            <td>Relationships, service</td>
+            <td class="hours-cell">4–6 hrs</td>
+          </tr>
+          <tr>
+            <td class="domain-num-cell">05</td>
+            <td class="domain-name-cell">Rest</td>
+            <td>Sleep + recovery</td>
+            <td class="hours-cell">8–10 hrs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DOMAIN 01 -->
+  <div class="domain-block reveal">
+    <div class="domain-header">
+      <div class="domain-number-big">01</div>
+      <div class="domain-title-group">
+        <div class="domain-label">First Domain</div>
+        <div class="domain-title">Creation</div>
+        <span class="domain-hours-badge">10–12 hours per cycle</span>
+      </div>
+    </div>
+    <p class="domain-body">Creation is focused, uninterrupted effort. It is building, learning, and crafting. It is the work that only happens when urgency is absent and depth is protected. Creation is not productivity — it is the deliberate application of your best attention to what matters most.</p>
+    <p class="domain-body">The world is hostile to Creation. Notifications, requests, and ambient urgency compete for the same attention that deep work requires. Protecting Creation time is not selfish. It is the primary act of living with intention.</p>
+    <div class="domain-practices">
+      <div class="practice-card">
+        <div class="practice-title">Start-of-Cycle Practice</div>
+        <p class="practice-body">Choose 1–3 Creation outcomes before the cycle begins. Name them. Write them down. Commit to them before anything else enters your attention.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">The Depth Block</div>
+        <p class="practice-body">One protected period per cycle: devices silenced, single task, no context-switching. This is where Creation actually happens.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Completion Standard</div>
+        <p class="practice-body">At least one Creation task should be completed fully per cycle — not advanced, not started, completed. Partial completion is not Creation.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Honest Scoring</div>
+        <p class="practice-body">On your Cycle Reflection Worksheet, rate Creation 0–5. Ask: what received your deepest attention? Did you complete at least one thing fully?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMAIN 02 -->
+  <div class="domain-block reveal">
+    <div class="domain-header">
+      <div class="domain-number-big">02</div>
+      <div class="domain-title-group">
+        <div class="domain-label">Second Domain</div>
+        <div class="domain-title">Maintenance</div>
+        <span class="domain-hours-badge">4–6 hours per cycle</span>
+      </div>
+    </div>
+    <p class="domain-body">Maintenance is the care of body, mind, and environment. It is the stability without which everything else collapses. Movement, hydration, sleep hygiene, administrative tasks, financial order, environmental cleanliness — none of these are glamorous. All of them are load-bearing.</p>
+    <p class="domain-body">Neglected Maintenance does not disappear. It accumulates. It becomes the pile of unopened mail, the medical appointment never scheduled, the body that stops cooperating at the worst moments. Maintenance is protection.</p>
+    <div class="domain-practices">
+      <div class="practice-card">
+        <div class="practice-title">The Maintenance Anchor</div>
+        <p class="practice-body">One guaranteed Maintenance act per cycle: movement, hydration, or one administrative task cleared. Non-negotiable, even in constrained cycles.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Body First</div>
+        <p class="practice-body">Physical health is the foundation of every other domain. Movement, nutrition, and sleep hygiene belong in Maintenance — not as extras, but as primary obligations.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Admin Clearing</div>
+        <p class="practice-body">Uncleared administrative tasks are invisible weight. One admin item cleared per cycle prevents the accumulation that makes Maintenance feel overwhelming.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Environment</div>
+        <p class="practice-body">The state of your physical environment reflects and affects your mental state. Maintenance includes the space you work and rest in.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMAIN 03 -->
+  <div class="domain-block reveal">
+    <div class="domain-header">
+      <div class="domain-number-big">03</div>
+      <div class="domain-title-group">
+        <div class="domain-label">Third Domain</div>
+        <div class="domain-title">Reflection</div>
+        <span class="domain-hours-badge">2–3 hours per cycle</span>
+      </div>
+    </div>
+    <p class="domain-body">Reflection is thought without pressure. It is review, journaling, and the slow work of making meaning from your own experience. It is the domain most consistently sacrificed first — the first to be replaced by more productive-feeling activity.</p>
+    <p class="domain-body">Without Reflection, cycles blur into each other. Lessons are not extracted. Patterns are not noticed. The Cycle Reflection Worksheet exists specifically to protect this domain — to give Reflection a container, a practice, and a minimum of 10–20 minutes of honest engagement.</p>
+    <div class="domain-practices">
+      <div class="practice-card">
+        <div class="practice-title">The Cycle Worksheet</div>
+        <p class="practice-body">Complete the Cycle Reflection Worksheet at the end of each cycle. Not as an evaluation. As an observation. Rate each domain honestly, not aspirationally.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Minimum Practice</div>
+        <p class="practice-body">10–20 minutes of unstructured review per cycle. No agenda, no output required. Just deliberate attention turned inward.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">The Sufficiency Statement</div>
+        <p class="practice-body">Complete this sentence at the end of each cycle: "This cycle reminds me that time is sufficient when I…" This is the core of Reflection practice.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Urgency Review</div>
+        <p class="practice-body">Where did urgency appear that wasn't truly necessary? Name it. What would have changed if you had done that more slowly?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMAIN 04 -->
+  <div class="domain-block reveal">
+    <div class="domain-header">
+      <div class="domain-number-big">04</div>
+      <div class="domain-title-group">
+        <div class="domain-label">Fourth Domain</div>
+        <div class="domain-title">Connection</div>
+        <span class="domain-hours-badge">4–6 hours per cycle</span>
+      </div>
+    </div>
+    <p class="domain-body">Connection is meaningful interaction with others — family, community, and service. It is presence, not performance. It is the domain most easily simulated and least often genuinely honored. Scrolling through others' lives is not Connection. Being present with a single person is.</p>
+    <p class="domain-body">The 32 Hour Group is itself an act of Connection — a community practicing the Doctrine together, holding each other accountable with gentleness, and providing the kind of belonging that isolated urgency cannot.</p>
+    <div class="domain-practices">
+      <div class="practice-card">
+        <div class="practice-title">Presence Over Quantity</div>
+        <p class="practice-body">One moment of genuine presence per cycle — a real conversation, an act of service, a period of undistracted time with someone who matters.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Community Practice</div>
+        <p class="practice-body">Participation in the 32 Hour Group community counts as Connection. Reflection check-ins, Pause & Realign sessions, and genuine engagement all honor this domain.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Service</div>
+        <p class="practice-body">Connection extends beyond personal relationships to service — contribution to something larger than yourself. This is not optional for a complete cycle.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Absence Audit</div>
+        <p class="practice-body">On the Cycle Worksheet: where did you feel absent or distracted in Connection? Name the moment. Notice the pattern. Repair in the next cycle.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMAIN 05 -->
+  <div class="domain-block reveal">
+    <div class="domain-header">
+      <div class="domain-number-big">05</div>
+      <div class="domain-title-group">
+        <div class="domain-label">Fifth Domain</div>
+        <div class="domain-title">Rest</div>
+        <span class="domain-hours-badge">8–10 hours per cycle</span>
+      </div>
+    </div>
+    <p class="domain-body">Rest is complete recovery. Sleep, stillness, and restorative leisure. It is not earned. It is not a reward for productivity. It is a requirement — as non-negotiable as Creation, and more foundational than any other domain.</p>
+    <p class="domain-body">The Doctrine is explicit: you may not skip Rest repeatedly. A cycle without Rest is a broken cycle. The Rest Gate — a clear, deliberate end to productivity — is one of the most important daily practices in the framework.</p>
+    <div class="domain-practices">
+      <div class="practice-card">
+        <div class="practice-title">The Rest Gate</div>
+        <p class="practice-body">A clear, deliberate end to productivity each cycle. Not a gradual fade — a gate. Work closes. Rest begins. This transition is practiced, not hoped for.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Sleep as Domain</div>
+        <p class="practice-body">8–10 hours of the 32-hour cycle are allocated to Rest. Sleep is the largest single investment the Doctrine asks you to make. Honor it accordingly.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Restorative Leisure</div>
+        <p class="practice-body">Rest is not only sleep. Stillness, gentle movement, undemanding leisure — these all count. The criterion is restoration, not inactivity.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-title">Rest Is Not Reward</div>
+        <p class="practice-body">You do not earn Rest by completing enough work. Rest is scheduled first, protected always, and never conditional on productivity. This is the hardest principle for most Initiates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal" style="text-align: center; padding-top: 40px;">
+    <div class="section-label" style="margin-bottom: 16px;">Ready to Practice?</div>
+    <a href="initiation.html" class="btn-primary">Begin Your Initiation</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">32 Hour Group</a>
+  <ul class="footer-links">
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="initiation.html">Initiate</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 32 Hour Group</div>
+</footer>
+<script>
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+  document.querySelectorAll(".reveal").forEach(el => {
+    new IntersectionObserver((e) => e.forEach(en => { if (en.isIntersecting) en.target.classList.add("visible"); }), { threshold: 0.08 }).observe(el);
+  });
+</script>
+</body>
+</html>
