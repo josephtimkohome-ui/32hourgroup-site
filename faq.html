@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — 32 Hour Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .faq-body { max-width: 860px; margin: 0 auto; padding: 100px 56px; }
+  .faq-category { margin-bottom: 72px; }
+  .faq-category-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .faq-category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 2px; }
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item.open { border-color: var(--gold-dim); }
+  .faq-question {
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 24px;
+  }
+  .faq-question-text {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--white);
+  }
+  .faq-toggle {
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    line-height: 1;
+  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 32px 28px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--grey);
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  .faq-answer-inner strong { color: var(--light); font-weight: 400; }
+  .faq-cta {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 56px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  .faq-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .faq-cta-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--grey);
+    max-width: 440px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  @media (max-width: 960px) { .faq-body { padding: 80px 24px; } }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta">Begin Initiation</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-tag">Common Questions</div>
+  <h1 class="page-title">Frequently Asked</h1>
+  <p class="page-subtitle">Questions from people who are curious, skeptical, or ready. All of them are valid. Asking without pressure is part of the practice.</p>
+</section>
+
+<div class="doctrine-strip">
+  <div class="strip-track">
+    <div class="strip-item">Ask Questions Without Pressure</div><div class="strip-item">Clarification Is Always Permitted</div><div class="strip-item">There Is No Wrong Question</div><div class="strip-item">Ask Questions Without Pressure</div><div class="strip-item">Clarification Is Always Permitted</div><div class="strip-item">There Is No Wrong Question</div>
+  </div>
+</div>
+
+<div class="faq-body">
+
+  <!-- THE BASICS -->
+  <div class="faq-category reveal">
+    <div class="faq-category-label">Category 01</div>
+    <div class="faq-category-title">The Basics</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">What exactly is the 32 Hour Group?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The 32 Hour Group is a cycle-based burnout recovery framework and community. It is built around the idea that a complete human day — one that honors focused work, health, reflection, connection, and rest — requires <strong>32 hours of intentional living</strong>. We don't add hours to the clock. We restore intention to the time you already have.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Does this mean I literally have 32 hours in a day?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. The 32-Hour Day is not a claim about the sun or the clock. It is a <strong>framework for living with sufficiency</strong> — the recognition that a fully lived cycle takes more intentional time than the compressed 24-hour industrial clock allows. Cycles in the Doctrine are flexible and may span multiple calendar days.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Is this a productivity system?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. This is an important distinction. <strong>Productivity systems optimize for output.</strong> The 32 Hour Group is a recovery framework — it restores the conditions for a life worth living. That includes rest, reflection, and connection, which no productivity system treats as primary. If you're looking for a way to do more, faster, this isn't it. If you're looking for a way to live with more depth and less urgency, you're in the right place.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Who is Father Joe?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Father Joe is the founder and keeper of the Doctrine. He created the 32 Hour Group after experiencing firsthand what the urgency-driven system costs — not in productivity, but in depth, rest, and the sense that your time belongs to you. He does not present himself as a guru or someone who has transcended the problem. He is a practitioner, a keeper of the framework, and a guide — not an authority to defer to.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOINING -->
+  <div class="faq-category reveal">
+    <div class="faq-category-label">Category 02</div>
+    <div class="faq-category-title">Joining & Initiation</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">What does it mean to be an Initiate?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">As an Initiate, <strong>you are in formation</strong>. Your role is to practice the Doctrine internally, observe how cycles work in real life, ask questions without pressure to get it right, and accept gentle correction when distortion appears. You are not expected to teach the Doctrine, recruit others, defend it publicly, or change your job, relationships, or lifestyle. You are simply asked to practice quietly and notice what changes.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Is there a cost to join?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Initiation into the community is free. The 32 Hour Group Discord community, the Cycle Reflection Worksheet, the Welcome Packet, and access to the Pause & Realign sessions are all available at no cost. The Store offers optional physical and digital resources for those who want to go deeper.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Do I have to be consistent to join?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. Consistency is the goal, not the prerequisite. The Doctrine is designed for people in real life — with constraints, disruptions, and cycles that don't go as planned. <strong>Repair is built into the framework.</strong> You are not expected to arrive already fixed. You are expected to arrive willing to practice.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Can I leave whenever I want?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes, always. You retain the right to leave at any time, without explanation. You also retain the right to say no to questions or practices, rest without justification, ask for clarification, and raise concerns about authority. <strong>Retaliation or pressure is not permitted</strong> in this community, ever.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE PRACTICE -->
+  <div class="faq-category reveal">
+    <div class="faq-category-label">Category 03</div>
+    <div class="faq-category-title">The Practice</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">How long is a cycle?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">A standard cycle is 32 hours of intentional living, distributed across the Five Domains. <strong>Because the world runs on 24 hours, cycles are flexible</strong> — they may span multiple calendar days, be split across a busy week, or be compressed into a shorter mini-cycle during constrained periods. The key is that all five domains are honored across the cycle, not that the cycle fits neatly into a single day.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">What if I skip a domain?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">You name it and repair it. A cycle is incomplete when a domain is repeatedly ignored — but one missed cycle is not a failure, it is information. The Cycle Reflection Worksheet asks you to identify the weakest domain and name one small repair for the next cycle. <strong>Repair is not punishment. It is restoration.</strong></div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">What is the Cycle Reflection Worksheet?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Cycle Reflection Worksheet is the primary practice tool of the Doctrine. At the end of each cycle, you rate each of the Five Domains honestly (0–5), identify what was neglected, name one small repair, complete the Sufficiency Statement, and set no more than three intentions for the next cycle. It is not an evaluation. <strong>It is an observation.</strong></div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">What is the Pause & Realign session?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Pause & Realign is a weekly 15-minute community session hosted by the High Stewardess. It is the heartbeat of the 32 Hour Group community — a brief, intentional pause where members stop, breathe, and realign with the Doctrine together. It is the most consistent act of Connection the community practices together.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKEPTICS -->
+  <div class="faq-category reveal">
+    <div class="faq-category-label">Category 04</div>
+    <div class="faq-category-title">For the Skeptics</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">Is this a cult?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">It's a fair question. The Doctrine has rituals, vows, and a structured hierarchy — so the surface-level resemblance is real. The key differences: <strong>you may leave at any time without explanation</strong>, you are explicitly told not to recruit others or impose the Doctrine on anyone, correction is always private before public and gentle before firm, and no authority figure is above questioning. A community that requires you to raise concerns about authority, and explicitly protects your right to do so, is not a cult.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">What makes this different from every other wellness framework?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most wellness frameworks treat burnout as a personal failure to be optimized away. The 32 Hour Group treats it as <strong>a systemic outcome of an inherited clock</strong> that was never designed for human flourishing. The difference matters: if the problem is you, the solution is self-improvement. If the problem is the system, the solution is a different framework for living. We propose the latter.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span class="faq-question-text">I'm too busy for this. Isn't that the whole problem?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. That's exactly the problem. The Doctrine doesn't ask you to find extra time — it asks you to change your relationship with the time you already have. <strong>The first practice is noticing urgency that isn't truly necessary.</strong> That takes 30 seconds and no scheduling. You already have enough time to begin.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="faq-cta reveal">
+    <div class="faq-cta-title">Still Have Questions?</div>
+    <p class="faq-cta-text">The community is the best place to ask. Keepers and Stewards are there to answer without pressure or judgment.</p>
+    <div style="display: flex; gap: 20px; justify-content: center; align-items: center;">
+      <a href="initiation.html" class="btn-primary">Join the Community</a>
+      <a href="manifesto.html" class="btn-ghost">Read the Manifesto</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">32 Hour Group</a>
+  <ul class="footer-links">
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="initiation.html">Initiate</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 32 Hour Group</div>
+</footer>
+<script>
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+  // FAQ accordion
+  document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", () => {
+      const item = q.parentElement;
+      const answer = item.querySelector(".faq-answer");
+      const isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(i => {
+        i.classList.remove("open");
+        i.querySelector(".faq-answer").style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add("open");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+  document.querySelectorAll(".reveal").forEach(el => {
+    new IntersectionObserver((e) => e.forEach(en => { if (en.isIntersecting) en.target.classList.add("visible"); }), { threshold: 0.08 }).observe(el);
+  });
+</script>
+</body>
+</html>
