@@ -78,6 +78,13 @@
 
 <title>The Manifesto — 32 Hour Group</title>
 
+
+<style>
+@media (max-width: 960px) {
+  #hamburger { display: block !important; }
+}
+</style>
+
 </head>
 <body>
 <nav id="nav">
@@ -91,26 +98,41 @@
     <li><a href="store.html">Store</a></li>
   </ul>
   <a href="initiation.html" class="nav-cta">Begin Initiation</a>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
+  <button onclick="openMenu()" style="display:none; background:none; border:none; cursor:pointer; padding:12px; z-index:200; position:relative;" id="hamburger">
+    <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
+    <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
+    <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" id="mobileClose">Close ✕</button>
-  <ul class="mobile-menu-links">
-    <li><a href="manifesto.html">Manifesto</a></li>
-    <li><a href="principles.html">Principles</a></li>
-    <li><a href="commandments.html">Commandments</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="store.html">Store</a></li>
-  </ul>
-  <a href="initiation.html" class="mobile-menu-cta">Begin Initiation</a>
+<div id="mobileMenu" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(10,10,10,0.97); z-index:9999; flex-direction:column; align-items:center; justify-content:center; gap:0;">
+  <button onclick="closeMenu()" style="position:absolute; top:24px; right:24px; background:none; border:none; color:#888880; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase; cursor:pointer; padding:12px;">CLOSE ✕</button>
+  <nav style="display:flex; flex-direction:column; align-items:center; gap:4px; margin-bottom:40px;">
+    <a href="manifesto.html" style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.2;">Manifesto</a>
+    <a href="principles.html" style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.2;">Principles</a>
+    <a href="commandments.html" style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.2;">Commandments</a>
+    <a href="team.html" style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.2;">Team</a>
+    <a href="faq.html" style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.2;">FAQ</a>
+    <a href="store.html" style="font-family:'Bebas Neue',sans-serif; font-size:52px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.2;">Store</a>
+  </nav>
+  <a href="initiation.html" style="font-family:'DM Mono',monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase; background:#c9a84c; color:#0a0a0a; padding:18px 44px; text-decoration:none;">Begin Initiation</a>
 </div>
+
+<script>
+function openMenu() {
+  var m = document.getElementById("mobileMenu");
+  m.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+function closeMenu() {
+  var m = document.getElementById("mobileMenu");
+  m.style.display = "none";
+  document.body.style.overflow = "";
+}
+</script>
+
+
 
 
 <section class="page-hero">
