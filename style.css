@@ -428,3 +428,11 @@ footer {
   nav.scrolled { padding: 10px 20px; }
   .nav-logo { flex-shrink: 0; }
 }
+
+/* START JOURNALING NAV LINK */
+.nav-links a[href*="app.32hourgroup"] {
+  color: var(--gold) !important;
+}
+.nav-links a[href*="app.32hourgroup"]:hover {
+  color: var(--white) !important;
+}
