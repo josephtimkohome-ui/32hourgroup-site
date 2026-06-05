@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://32hourgroup.com/sitemap.xml
