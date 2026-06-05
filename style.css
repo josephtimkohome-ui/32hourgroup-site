@@ -287,3 +287,20 @@ footer {
   footer { flex-direction: column; gap: 24px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
+
+/* LOGO */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.footer-logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.footer-logo:hover .footer-logo-img { opacity: 1; }
