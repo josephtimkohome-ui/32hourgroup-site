@@ -3,30 +3,536 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>32 Hour Group — You Are Not Behind</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 56px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 65% 45%, rgba(201,168,76,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 30% 40% at 20% 80%, rgba(201,168,76,0.03) 0%, transparent 60%);
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.2s forwards;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 9vw, 136px);
+    line-height: 0.93;
+    letter-spacing: 2px;
+    color: var(--white);
+    max-width: 820px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.35s forwards;
+  }
+  .hero-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+    font-size: 0.82em;
+  }
+  .hero-problem {
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--light);
+    max-width: 520px;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.55s forwards;
+  }
+  .hero-problem strong { color: var(--white); font-weight: 400; }
+  .hero-cta {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-top: 52px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.75s forwards;
+  }
+  .hero-reassurance {
+    margin-top: 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey);
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.95s forwards;
+  }
 
-<title>32 Hour Group — You Are Not Behind</title>
+  /* PROBLEM */
+  .problem { padding: 120px 56px; border-top: 1px solid var(--border); }
+  .problem-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .problem-left { position: sticky; top: 120px; }
+  .problem-cards { display: flex; flex-direction: column; gap: 2px; }
+  .problem-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    transition: border-color 0.3s;
+  }
+  .problem-card:hover { border-color: var(--gold-dim); }
+  .problem-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 14px;
+  }
+  .problem-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .problem-desc {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey);
+  }
 
+  /* GUIDE */
+  .guide { padding: 120px 56px; background: var(--dark); border-top: 1px solid var(--border); }
+  .guide-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .guide-badge {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+  }
+  .guide-badge::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--border);
+    pointer-events: none;
+  }
+  .guide-seal {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 28px;
+    background: var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    border: 1px solid var(--gold-dim);
+  }
+  .guide-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .guide-title-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .guide-quote {
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey);
+  }
+  .guide-empathy-text {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--light);
+    margin-bottom: 28px;
+  }
+  .guide-credentials { display: flex; flex-direction: column; gap: 2px; }
+  .credential {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .credential-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; }
+  .credential-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  /* PLAN */
+  .plan { padding: 120px 56px; border-top: 1px solid var(--border); }
+  .plan-inner { max-width: 1200px; margin: 0 auto; }
+  .plan-header { text-align: center; margin-bottom: 80px; }
+  .plan-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+  .plan-step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 48px 36px 52px;
+    text-align: center;
+    transition: border-color 0.3s;
+  }
+  .plan-step:hover { border-color: var(--gold-dim); }
+  .plan-step-num {
+    width: 56px;
+    height: 56px;
+    background: var(--black);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--gold);
+    margin: 0 auto 28px;
+  }
+  .plan-step-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .plan-step-body {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey);
+  }
+  .plan-cta { text-align: center; margin-top: 64px; }
+
+  /* DOMAINS */
+  .domains { padding: 120px 56px; background: var(--dark); border-top: 1px solid var(--border); }
+  .domains-inner { max-width: 1200px; margin: 0 auto; }
+  .domains-header { margin-bottom: 64px; }
+  .domains-intro {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--light);
+    max-width: 600px;
+    margin-top: 20px;
+  }
+  .domains-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+  }
+  .domain-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 36px 24px 44px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .domain-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .domain-card:hover { border-color: var(--gold-dim); transform: translateY(-4px); }
+  .domain-card:hover::after { transform: scaleX(1); }
+  .domain-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-bottom: 20px;
+  }
+  .domain-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .domain-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--grey);
+  }
+  .domain-range {
+    margin-top: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  /* STAKES */
+  .stakes { padding: 120px 56px; border-top: 1px solid var(--border); }
+  .stakes-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .stakes-left {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 64px 56px;
+  }
+  .stakes-right {
+    background: #0f0f0a;
+    border: 1px solid var(--gold-dim);
+    padding: 64px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stakes-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+  .stakes-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: 2px;
+    margin-bottom: 36px;
+    line-height: 1.1;
+  }
+  .stakes-left .stakes-heading { color: var(--grey); }
+  .stakes-right .stakes-heading { color: var(--gold); position: relative; }
+  .stakes-list { display: flex; flex-direction: column; gap: 20px; list-style: none; }
+  .stakes-list li {
+    display: flex;
+    gap: 16px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .stakes-left .stakes-list li { color: var(--grey); }
+  .stakes-right .stakes-list li { color: var(--light); position: relative; }
+  .stake-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+  .stakes-left .stake-icon { color: #444; }
+  .stakes-right .stake-icon { color: var(--gold); }
+
+  /* SUCCESS */
+  .success { padding: 120px 56px; background: var(--dark); border-top: 1px solid var(--border); text-align: center; }
+  .success-inner { max-width: 860px; margin: 0 auto; }
+  .success-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 48px;
+  }
+  .success-title strong { font-style: normal; font-weight: 600; color: var(--gold); }
+  .success-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 64px;
+    text-align: left;
+  }
+  .pillar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+    transition: border-color 0.3s;
+  }
+  .pillar:hover { border-color: var(--gold-dim); }
+  .pillar-icon { font-size: 28px; margin-bottom: 16px; }
+  .pillar-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .pillar-body { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--grey); }
+
+  /* VOWS */
+  .vows { padding: 120px 56px; border-top: 1px solid var(--border); }
+  .vows-inner { max-width: 1200px; margin: 0 auto; }
+  .vows-header { margin-bottom: 56px; }
+  .vows-intro {
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--light);
+    max-width: 540px;
+    margin-top: 16px;
+  }
+  .vows-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+  .vow {
+    background: var(--card);
+    padding: 28px 36px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: background 0.3s;
+  }
+  .vow:hover { background: #1a1a1a; }
+  .vow-dash { color: var(--gold); font-size: 20px; line-height: 1.4; flex-shrink: 0; }
+  .vow-text { font-size: 18px; font-weight: 300; font-style: italic; line-height: 1.5; color: var(--light); }
+
+  /* FINAL CTA */
+  .cta-final {
+    padding: 160px 56px;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 65%);
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .cta-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+    font-size: 0.78em;
+  }
+  .cta-sub {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--grey);
+    max-width: 480px;
+    margin: 0 auto 56px;
+    line-height: 1.7;
+    position: relative;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .cta-footnote {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey);
+    position: relative;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .hero { padding: 100px 24px 60px; }
+    .problem { padding: 80px 24px; }
+    .problem-inner { grid-template-columns: 1fr; gap: 48px; }
+    .problem-left { position: static; }
+    .guide { padding: 80px 24px; }
+    .guide-inner { grid-template-columns: 1fr; gap: 48px; }
+    .plan { padding: 80px 24px; }
+    .plan-steps { grid-template-columns: 1fr; }
+    .domains { padding: 80px 24px; }
+    .domains-grid { grid-template-columns: 1fr 1fr; }
+    .stakes { padding: 80px 24px; }
+    .stakes-inner { grid-template-columns: 1fr; }
+    .success { padding: 80px 24px; }
+    .success-pillars { grid-template-columns: 1fr; }
+    .vows { padding: 80px 24px; }
+    .vows-grid { grid-template-columns: 1fr; }
+    .cta-final { padding: 100px 24px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo">32 Hour Group</div>
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
   <ul class="nav-links">
     <li><a href="#problem">The Problem</a></li>
-    <li><a href="principles.html">The Plan</a></li>
+    <li><a href="#plan">The Plan</a></li>
     <li><a href="principles.html">Five Domains</a></li>
     <li><a href="initiation.html">Initiate</a></li>
   </ul>
   <a href="initiation.html" class="nav-cta">Begin Initiation</a>
 </nav>
 
-<!-- =====================
-     1. THE CHARACTER
-     You are not behind.
-===================== -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-tag">For the burned out. The over-scheduled. The ones who feel perpetually behind.</div>
@@ -64,16 +570,13 @@
   </div>
 </div>
 
-<!-- =====================
-     2. THE PROBLEM
-     External / Internal / Philosophical
-===================== -->
+<!-- PROBLEM -->
 <section class="problem" id="problem">
   <div class="problem-inner">
     <div class="problem-left">
       <div class="section-label reveal">The Problem</div>
       <h2 class="section-title reveal reveal-delay-1">The System Was Never Built for You</h2>
-      <p class="section-body reveal reveal-delay-2">The industrial clock runs your life. And it's costing you more than productivity — it's costing you depth, rest, and the sense that your time actually belongs to you.</p>
+      <p class="body-text reveal reveal-delay-2">The industrial clock runs your life. And it's costing you more than productivity — it's costing you depth, rest, and the sense that your time actually belongs to you.</p>
     </div>
     <div class="problem-cards">
       <div class="problem-card reveal">
@@ -95,18 +598,13 @@
   </div>
 </section>
 
-<!-- =====================
-     3. THE GUIDE
-     Father Joe meets you with empathy + authority
-===================== -->
+<!-- GUIDE -->
 <section class="guide">
   <div class="guide-inner">
     <div>
       <div class="section-label reveal">The Guide</div>
       <h2 class="section-title reveal reveal-delay-1">You Don't Need Another Productivity Hack.</h2>
-      <div class="guide-empathy">
-        <p class="guide-empathy-text reveal reveal-delay-2">We've been where you are. Running on urgency. Measuring worth in output. Treating rest as a reward instead of a requirement. The 32 Hour Group was built by people who broke that cycle — and built a new one.</p>
-      </div>
+      <p class="guide-empathy-text reveal reveal-delay-2">We've been where you are. Running on urgency. Measuring worth in output. Treating rest as a reward instead of a requirement. The 32 Hour Group was built by people who broke that cycle — and built a new one.</p>
       <div class="guide-credentials">
         <div class="credential reveal reveal-delay-3">
           <span class="credential-icon">◆</span>
@@ -131,10 +629,7 @@
   </div>
 </section>
 
-<!-- =====================
-     4. THE PLAN
-     Simple 3 steps — remove friction
-===================== -->
+<!-- PLAN -->
 <section class="plan" id="plan">
   <div class="plan-inner">
     <div class="plan-header">
@@ -164,10 +659,7 @@
   </div>
 </section>
 
-<!-- =====================
-     THE FIVE DOMAINS
-     The framework visualized
-===================== -->
+<!-- FIVE DOMAINS -->
 <section class="domains" id="domains">
   <div class="domains-inner">
     <div class="domains-header">
@@ -210,10 +702,7 @@
   </div>
 </section>
 
-<!-- =====================
-     6. AVOID FAILURE vs SUCCESS
-     The stakes — before and after
-===================== -->
+<!-- STAKES -->
 <section class="stakes">
   <div class="stakes-inner">
     <div class="stakes-left reveal">
@@ -241,13 +730,10 @@
   </div>
 </section>
 
-<!-- =====================
-     7. SUCCESS
-     The transformed life
-===================== -->
+<!-- SUCCESS -->
 <section class="success">
   <div class="success-inner">
-    <div class="success-label reveal">The Promise</div>
+    <div class="section-label reveal">The Promise</div>
     <h2 class="success-title reveal reveal-delay-1">
       Imagine ending a cycle knowing you gave your <strong>best attention</strong> to what matters most — and that rest was not something you earned, but something you simply <strong>lived.</strong>
     </h2>
@@ -271,7 +757,7 @@
   </div>
 </section>
 
-<!-- ENTRY VOWS -->
+<!-- VOWS -->
 <section class="vows" id="initiate">
   <div class="vows-inner">
     <div class="vows-header">
@@ -280,78 +766,53 @@
       <p class="vows-intro reveal reveal-delay-2">You are not required to memorize these. They are here to set your orientation — and to remind you what you are choosing.</p>
     </div>
     <div class="vows-grid reveal reveal-delay-3">
-      <div class="vow">
-        <span class="vow-dash">—</span>
-        <span class="vow-text">I affirm that time, when lived with intention, is sufficient.</span>
-      </div>
-      <div class="vow">
-        <span class="vow-dash">—</span>
-        <span class="vow-text">I will not mistake urgency for importance.</span>
-      </div>
-      <div class="vow">
-        <span class="vow-dash">—</span>
-        <span class="vow-text">I commit to depth where depth is required.</span>
-      </div>
-      <div class="vow">
-        <span class="vow-dash">—</span>
-        <span class="vow-text">I will protect rest as essential, not optional.</span>
-      </div>
-      <div class="vow">
-        <span class="vow-dash">—</span>
-        <span class="vow-text">I accept responsibility for my attention.</span>
-      </div>
-      <div class="vow">
-        <span class="vow-dash">—</span>
-        <span class="vow-text">I will not impose this doctrine on others.</span>
-      </div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I affirm that time, when lived with intention, is sufficient.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will not mistake urgency for importance.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I commit to depth where depth is required.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will protect rest as essential, not optional.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I accept responsibility for my attention.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will not impose this doctrine on others.</span></div>
     </div>
   </div>
 </section>
 
-<!-- =====================
-     FINAL CTA
-     Direct. Clear. Low friction.
-===================== -->
+<!-- FINAL CTA -->
 <section class="cta-final">
   <div class="cta-bg"></div>
-  <div class="cta-label reveal">The Invitation</div>
+  <div class="section-label reveal" style="position: relative;">The Invitation</div>
   <h2 class="cta-title reveal reveal-delay-1">
     A Day Is
     <em>32 Hours.</em>
   </h2>
   <p class="cta-sub reveal reveal-delay-2">You do not need to rush. You do not need to impress. You do not need to perform. Practice quietly. Notice what changes. Repair what is neglected.</p>
   <div class="cta-buttons reveal reveal-delay-3">
-    <a href="#" class="btn-primary">Become an Initiate</a>
-    <a href="#" class="btn-ghost">Read the Manifesto</a>
+    <a href="initiation.html" class="btn-primary">Become an Initiate</a>
+    <a href="manifesto.html" class="btn-ghost">Read the Manifesto</a>
   </div>
   <p class="cta-footnote reveal reveal-delay-4">Live accordingly.</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">32 Hour Group</div>
+  <a href="index.html" class="footer-logo">32 Hour Group</a>
   <ul class="footer-links">
-    <li><a href="#">Principles</a></li>
-    <li><a href="#">Manifesto</a></li>
-    <li><a href="#">Commandments</a></li>
-    <li><a href="#">Discord</a></li>
-    <li><a href="#">Store</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="initiation.html">Initiate</a></li>
+    <li><a href="store.html">Store</a></li>
   </ul>
   <div class="footer-copy">© 2025 32 Hour Group</div>
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  const reveals = document.querySelectorAll('.reveal');
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+  const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
   reveals.forEach(el => observer.observe(el));
 </script>
 </body>
