@@ -94,6 +94,8 @@ nav.scrolled {
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  align-items: center;
+  text-align: center;
 }
 .page-hero-bg {
   position: absolute;
@@ -290,7 +292,7 @@ footer {
 
 /* LOGO */
 .nav-logo-img {
-  height: 240px;
+  height: 64px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -306,5 +308,5 @@ footer {
 .footer-logo:hover .footer-logo-img { opacity: 1; }
 
 @media (max-width: 960px) {
-  .nav-logo-img { height: 120px; }
+  .nav-logo-img { height: 48px; }
 }
