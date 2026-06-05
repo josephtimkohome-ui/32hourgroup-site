@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Commandments — 32 Hour Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .commandments-body { max-width: 1000px; margin: 0 auto; padding: 100px 56px; }
+  .cmd-intro { margin-bottom: 80px; }
+  .cmd-intro-text {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--light);
+    max-width: 660px;
+  }
+  .commandments-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 80px; }
+  .commandment {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 40px 44px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    align-items: start;
+    transition: border-color 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .commandment::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease;
+  }
+  .commandment:hover { border-color: var(--gold-dim); }
+  .commandment:hover::before { transform: scaleY(1); }
+  .cmd-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--border);
+    letter-spacing: 2px;
+    transition: color 0.3s;
+  }
+  .commandment:hover .cmd-number { color: var(--gold-dim); }
+  .cmd-content {}
+  .cmd-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .cmd-body {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--grey);
+  }
+  .cmd-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-top: 10px;
+  }
+  .divider-section {
+    text-align: center;
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 80px 0;
+  }
+  .divider-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .divider-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  @media (max-width: 960px) {
+    .commandments-body { padding: 80px 24px; }
+    .commandment { grid-template-columns: 1fr; gap: 12px; padding: 32px 28px; }
+    .cmd-number { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="commandments.html" class="active">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta">Begin Initiation</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-tag">The Rules of Practice</div>
+  <h1 class="page-title">The Commandments</h1>
+  <p class="page-subtitle">These are not suggestions. They are the non-negotiable conditions of practicing the Doctrine with integrity.</p>
+</section>
+
+<div class="doctrine-strip">
+  <div class="strip-track">
+    <div class="strip-item">These Are Not Suggestions</div><div class="strip-item">These Are Conditions of Practice</div><div class="strip-item">You Are Not Behind</div><div class="strip-item">You Are Practicing</div><div class="strip-item">These Are Not Suggestions</div><div class="strip-item">These Are Conditions of Practice</div><div class="strip-item">You Are Not Behind</div><div class="strip-item">You Are Practicing</div>
+  </div>
+</div>
+
+<div class="commandments-body">
+
+  <div class="cmd-intro reveal">
+    <div class="section-label">Before You Read</div>
+    <h2 class="section-title">What Commandments Are</h2>
+    <p class="cmd-intro-text">The Commandments are the protective boundaries of the Doctrine. They exist not to restrict your freedom but to guard it. Each one was written because its opposite — unchecked — leads back to the same urgency, exhaustion, and loss of intention that brought you here in the first place.</p>
+  </div>
+
+  <div class="commandments-list">
+
+    <div class="commandment reveal">
+      <div class="cmd-number">01</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Not Mistake Urgency for Importance</div>
+        <p class="cmd-body">Urgency is a feeling. Importance is a judgment. The two are frequently unrelated. An urgent message may be trivial. An important project may feel calm. The Doctrine requires you to distinguish between them before you act — every time.</p>
+        <div class="cmd-sub">Domain: All · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">02</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Protect Rest as Essential</div>
+        <p class="cmd-body">Rest is not earned. It is not a reward. It is a requirement that precedes and enables every other domain. You may not skip Rest repeatedly. The Rest Gate is sacred — a clear, deliberate end to productivity that is practiced, not hoped for.</p>
+        <div class="cmd-sub">Domain: Rest · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">03</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Honor All Five Domains</div>
+        <p class="cmd-body">No domain may be permanently sacrificed for another. Creation without Rest leads to collapse. Rest without Creation leads to drift. Connection without Reflection leads to performance. The cycle is a system. All five domains are load-bearing.</p>
+        <div class="cmd-sub">Domain: All · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">04</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Accept Responsibility for Your Attention</div>
+        <p class="cmd-body">Your attention is your most valuable resource. Where it goes, your life follows. You are not a passive recipient of distraction — you are its author. The Doctrine asks you to treat every decision about your attention as a decision about your life.</p>
+        <div class="cmd-sub">Domain: Creation, Reflection · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">05</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Not Impose the Doctrine on Others</div>
+        <p class="cmd-body">The Doctrine is a personal practice. It is not a conversion project. You are not permitted to impose it on partners, family, colleagues, or anyone who has not chosen it. Practice it yourself. Embody it. Let your life speak. Recruitment through pressure is a violation of the Doctrine's spirit.</p>
+        <div class="cmd-sub">Domain: Connection · Frequency: Always</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">06</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Repair, Not Punish</div>
+        <p class="cmd-body">When a domain is neglected — and it will be — the response is repair, not self-punishment. Repair is restorative. Punishment is another form of urgency turned inward. Identify what was neglected. Name one small repair for the next cycle. Move forward without drama.</p>
+        <div class="cmd-sub">Domain: Reflection · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">07</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Complete, Not Only Begin</div>
+        <p class="cmd-body">Creation requires completion. Starting is not enough. The habit of beginning without finishing is a form of urgency — the dopamine of the new without the discipline of the done. Each cycle, complete at least one Creation task fully before moving to the next.</p>
+        <div class="cmd-sub">Domain: Creation · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">08</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Reflect Before You Plan</div>
+        <p class="cmd-body">The next cycle's intentions are set after the current cycle's reflection — not before. Planning without reflection is prediction. Reflection followed by intention is wisdom. The Cycle Worksheet completes before the next cycle begins.</p>
+        <div class="cmd-sub">Domain: Reflection · Frequency: Every cycle</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">09</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Not Turn Cycles into Rigid Rules</div>
+        <p class="cmd-body">The Doctrine is a framework, not a cage. Cycles are flexible. They may span multiple days. They may be shortened during constrained periods. They may be repaired rather than restarted. The moment the Doctrine becomes another system to fail at, it has become the problem it was designed to solve.</p>
+        <div class="cmd-sub">Domain: All · Frequency: Always</div>
+      </div>
+    </div>
+
+    <div class="commandment reveal">
+      <div class="cmd-number">10</div>
+      <div class="cmd-content">
+        <div class="cmd-title">You Shall Practice Quietly</div>
+        <p class="cmd-body">The Doctrine is lived, not performed. You do not need to announce your cycle. You do not need to post your scores. You do not need to demonstrate your practice to anyone. Quiet, consistent practice over time is the only evidence that matters. You are not behind. You are practicing.</p>
+        <div class="cmd-sub">Domain: All · Frequency: Always</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider-section reveal">
+    <div class="divider-text">"Repair is not punishment. It is restoration."</div>
+    <div class="divider-attr">— The Cycle Reflection Worksheet</div>
+  </div>
+
+  <div style="text-align: center;" class="reveal">
+    <div class="section-label" style="margin-bottom: 16px;">Ready to commit?</div>
+    <div style="display: flex; gap: 20px; justify-content: center; align-items: center;">
+      <a href="initiation.html" class="btn-primary">Begin Your Initiation</a>
+      <a href="manifesto.html" class="btn-ghost">Read the Manifesto</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">32 Hour Group</a>
+  <ul class="footer-links">
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="initiation.html">Initiate</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 32 Hour Group</div>
+</footer>
+<script>
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+  document.querySelectorAll(".reveal").forEach(el => {
+    new IntersectionObserver((e) => e.forEach(en => { if (en.isIntersecting) en.target.classList.add("visible"); }), { threshold: 0.08 }).observe(el);
+  });
+</script>
+</body>
+</html>
