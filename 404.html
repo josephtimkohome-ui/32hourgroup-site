@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .not-found-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 65%);
+  }
+  .not-found-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 20vw, 240px);
+    line-height: 1;
+    letter-spacing: 8px;
+    color: var(--border);
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .not-found-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .not-found-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .not-found-text {
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--grey);
+    max-width: 400px;
+    margin: 0 auto 48px;
+    position: relative;
+  }
+  .not-found-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+</style>
+
+<title>Page Not Found — 32 Hour Group</title>
+
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta">Begin Initiation</a>
+</nav>
+
+<div class="not-found">
+  <div class="not-found-bg"></div>
+  <div class="not-found-num">404</div>
+  <div class="not-found-label">Page Not Found</div>
+  <h1 class="not-found-title">You Are Not Behind.</h1>
+  <p class="not-found-text">This page doesn't exist — but you're not lost. You simply took an unplanned turn. Repair is always available.</p>
+  <div class="not-found-actions">
+    <a href="index.html" class="btn-primary">Return Home</a>
+    <a href="manifesto.html" class="btn-ghost">Read the Manifesto</a>
+  </div>
+</div>
+
+<script>
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+</script>
+</body>
+</html>
