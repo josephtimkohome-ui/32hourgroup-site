@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Begin Your Initiation — 32 Hour Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .initiation-body { max-width: 1100px; margin: 0 auto; padding: 100px 56px; }
+
+  /* WHAT YOU'RE CHOOSING */
+  .choosing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 100px;
+    align-items: start;
+  }
+  .choosing-text { font-size: 19px; font-weight: 300; line-height: 1.9; color: var(--light); }
+  .choosing-text + .choosing-text { margin-top: 20px; }
+  .choosing-items { display: flex; flex-direction: column; gap: 2px; }
+  .choosing-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+  .choosing-item:hover { border-color: var(--gold-dim); }
+  .choosing-icon { color: var(--gold); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .choosing-item-text { font-size: 17px; font-weight: 300; line-height: 1.6; color: var(--light); }
+
+  /* VOWS */
+  .vows-section { margin-bottom: 100px; }
+  .vows-intro { font-size: 19px; font-weight: 300; line-height: 1.9; color: var(--light); max-width: 600px; margin-bottom: 40px; }
+  .vows-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+  .vow {
+    background: var(--card);
+    padding: 28px 32px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: background 0.3s;
+  }
+  .vow:hover { background: #1a1a1a; }
+  .vow-dash { color: var(--gold); font-size: 20px; flex-shrink: 0; }
+  .vow-text { font-size: 17px; font-weight: 300; font-style: italic; line-height: 1.5; color: var(--light); }
+
+  /* WHAT YOU GET */
+  .get-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 100px;
+  }
+  .get-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    transition: border-color 0.3s;
+  }
+  .get-card:hover { border-color: var(--gold-dim); }
+  .get-icon { font-size: 28px; margin-bottom: 16px; }
+  .get-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .get-desc { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--grey); }
+
+  /* MAIN CTA BLOCK */
+  .cta-block {
+    background: var(--dark);
+    border: 1px solid var(--gold-dim);
+    padding: 80px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 64px;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cta-block-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cta-block-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 1;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cta-block-sub {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--grey);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    position: relative;
+  }
+  .cta-block-button {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 22px 56px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 400;
+  }
+  .cta-block-button:hover { background: var(--white); transform: translateY(-3px); }
+  .cta-block-note {
+    margin-top: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey);
+    position: relative;
+  }
+
+  /* RIGHTS */
+  .rights-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 48px;
+    margin-bottom: 64px;
+  }
+  .rights-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .rights-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    list-style: none;
+  }
+  .rights-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--light);
+    align-items: flex-start;
+  }
+  .rights-list li::before { content: '◆'; color: var(--gold); flex-shrink: 0; font-size: 10px; margin-top: 4px; }
+  .rights-note {
+    margin-top: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  .closing-line {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .closing-line p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  @media (max-width: 960px) {
+    .initiation-body { padding: 80px 24px; }
+    .choosing-grid { grid-template-columns: 1fr; gap: 40px; }
+    .vows-grid { grid-template-columns: 1fr; }
+    .get-grid { grid-template-columns: 1fr; }
+    .rights-list { grid-template-columns: 1fr; }
+    .cta-block { padding: 56px 32px; }
+  }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">32 Hour Group</a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta" style="background: var(--white); color: var(--black);">You're Here</a>
+</nav>
+
+<section class="page-hero" style="min-height: 55vh;">
+  <div class="page-hero-bg"></div>
+  <div class="page-tag">The First Step</div>
+  <h1 class="page-title">Begin Your Initiation</h1>
+  <p class="page-subtitle">You do not need to be ready. You do not need to be consistent. You need only to be willing to practice. The community will do the rest.</p>
+</section>
+
+<div class="doctrine-strip">
+  <div class="strip-track">
+    <div class="strip-item">You Are Not Behind</div><div class="strip-item">You Are Practicing</div><div class="strip-item">Practice Quietly</div><div class="strip-item">Notice What Changes</div><div class="strip-item">Repair What Is Neglected</div><div class="strip-item">A Day Is 32 Hours</div><div class="strip-item">Live Accordingly</div><div class="strip-item">You Are Not Behind</div><div class="strip-item">You Are Practicing</div><div class="strip-item">Practice Quietly</div><div class="strip-item">Notice What Changes</div><div class="strip-item">Repair What Is Neglected</div><div class="strip-item">A Day Is 32 Hours</div><div class="strip-item">Live Accordingly</div>
+  </div>
+</div>
+
+<div class="initiation-body">
+
+  <!-- WHAT YOU'RE CHOOSING -->
+  <div class="choosing-grid">
+    <div class="reveal">
+      <div class="section-label">What You're Choosing</div>
+      <h2 class="section-title">What Initiation Means</h2>
+      <p class="choosing-text">As an Initiate, you are in formation. Not performance. Formation. The goal is not to demonstrate mastery of the Doctrine — it is to practice it honestly, observe what happens, and repair what is neglected.</p>
+      <p class="choosing-text">Initiation is not a commitment to perfection. It is a commitment to practice.</p>
+    </div>
+    <div class="choosing-items reveal reveal-delay-2">
+      <div class="choosing-item">
+        <span class="choosing-icon">◆</span>
+        <span class="choosing-item-text">Practice the Doctrine internally — not publicly, not performatively</span>
+      </div>
+      <div class="choosing-item">
+        <span class="choosing-icon">◆</span>
+        <span class="choosing-item-text">Observe how cycles work in your real, actual life</span>
+      </div>
+      <div class="choosing-item">
+        <span class="choosing-icon">◆</span>
+        <span class="choosing-item-text">Ask questions without pressure to get it right</span>
+      </div>
+      <div class="choosing-item">
+        <span class="choosing-icon">◆</span>
+        <span class="choosing-item-text">Accept gentle correction when distortion appears</span>
+      </div>
+      <div class="choosing-item" style="border-color: var(--border); background: var(--dark);">
+        <span class="choosing-icon" style="color: var(--grey);">✕</span>
+        <span class="choosing-item-text" style="color: var(--grey);">You are NOT expected to teach, recruit, or defend the Doctrine</span>
+      </div>
+      <div class="choosing-item" style="border-color: var(--border); background: var(--dark);">
+        <span class="choosing-icon" style="color: var(--grey);">✕</span>
+        <span class="choosing-item-text" style="color: var(--grey);">You are NOT expected to change your job, relationships, or lifestyle</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE VOWS -->
+  <div class="vows-section reveal">
+    <div class="section-label">Before You Enter</div>
+    <h2 class="section-title">The Entry Vows</h2>
+    <p class="vows-intro">Read these before you join. You are not required to memorize them. They are here to set your orientation — and to remind you what you are choosing.</p>
+    <div class="vows-grid">
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I affirm that time, when lived with intention, is sufficient.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will not mistake urgency for importance.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I commit to depth where depth is required.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will protect rest as essential, not optional.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I accept responsibility for my attention.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will not impose this doctrine on others.</span></div>
+      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I accept correction when distortion appears.</span></div>
+      <div class="vow" style="background: var(--dark);"><span class="vow-dash" style="color: var(--gold-dim);">—</span><span class="vow-text" style="color: var(--grey); font-style: normal; font-size: 14px; font-family: 'DM Mono', monospace; letter-spacing: 1px;">These are for reflection. Not memorization.</span></div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="reveal">
+    <div class="section-label">What You Receive</div>
+    <h2 class="section-title" style="margin-bottom: 40px;">When You Join</h2>
+  </div>
+  <div class="get-grid">
+    <div class="get-card reveal">
+      <div class="get-icon">📋</div>
+      <div class="get-title">Welcome Packet</div>
+      <p class="get-desc">The complete Initiate Welcome Packet — the Doctrine, the Five Domains, the Standard Cycle, daily practices, and your rights as an Initiate.</p>
+    </div>
+    <div class="get-card reveal reveal-delay-2">
+      <div class="get-icon">⏳</div>
+      <div class="get-title">Cycle Worksheet</div>
+      <p class="get-desc">The Cycle Reflection Worksheet — your primary practice tool for observing, naming, and repairing each cycle with honesty and intention.</p>
+    </div>
+    <div class="get-card reveal reveal-delay-4">
+      <div class="get-icon">🎙️</div>
+      <div class="get-title">Pause & Realign</div>
+      <p class="get-desc">Weekly 15-minute community sessions hosted by the High Stewardess. The most consistent act of Connection the community practices together.</p>
+    </div>
+    <div class="get-card reveal">
+      <div class="get-icon">🎵</div>
+      <div class="get-title">Reflection Radio</div>
+      <p class="get-desc">24/7 Lofi ambient station in the Discord — a permanent atmosphere for deep work, reflection, and the sense of belonging to something unhurried.</p>
+    </div>
+    <div class="get-card reveal reveal-delay-2">
+      <div class="get-icon">◆</div>
+      <div class="get-title">The Community</div>
+      <p class="get-desc">Access to the 32 Hour Group Discord — a growing community of Initiates, Keepers, and Stewards practicing the Doctrine together in real life.</p>
+    </div>
+    <div class="get-card reveal reveal-delay-4">
+      <div class="get-icon">∞</div>
+      <div class="get-title">Daily Guidance</div>
+      <p class="get-desc">Daily reflection prompts and connection questions in Father Joe's voice — consistent, doctrine-aligned guidance to anchor every cycle.</p>
+    </div>
+  </div>
+
+  <!-- THE CTA -->
+  <div class="cta-block reveal">
+    <div class="cta-block-tag">The Invitation</div>
+    <div class="cta-block-title">Begin Your Initiation</div>
+    <p class="cta-block-sub">Practice quietly. Notice what changes. Repair what is neglected. A day is 32 hours.</p>
+    <!-- REPLACE THIS HREF WITH YOUR DISCORD INVITE LINK -->
+    <a href="#" class="cta-block-button">Join the Community</a>
+    <p class="cta-block-note">Free to join · Discord community · No pressure to perform</p>
+  </div>
+
+  <!-- YOUR RIGHTS -->
+  <div class="rights-block reveal">
+    <div class="rights-title">Your Rights as an Initiate</div>
+    <ul class="rights-list">
+      <li>Leave at any time, without explanation</li>
+      <li>Say no to questions or practices</li>
+      <li>Rest without justification</li>
+      <li>Ask for clarification at any time</li>
+      <li>Raise concerns about authority</li>
+      <li>Practice at your own pace</li>
+    </ul>
+    <div class="rights-note">Retaliation or pressure is not permitted — ever.</div>
+  </div>
+
+  <div class="closing-line reveal">
+    <p>Live accordingly.</p>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">32 Hour Group</a>
+  <ul class="footer-links">
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html">Store</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 32 Hour Group</div>
+</footer>
+<script>
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
+  document.querySelectorAll(".reveal").forEach(el => {
+    new IntersectionObserver((e) => e.forEach(en => { if (en.isIntersecting) en.target.classList.add("visible"); }), { threshold: 0.08 }).observe(el);
+  });
+</script>
+</body>
+</html>
