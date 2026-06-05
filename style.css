@@ -290,13 +290,13 @@ footer {
 
 /* LOGO */
 .nav-logo-img {
-  height: 36px;
+  height: 56px;
   width: auto;
   display: block;
   object-fit: contain;
 }
 .footer-logo-img {
-  height: 28px;
+  height: 36px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -304,3 +304,7 @@ footer {
   transition: opacity 0.3s;
 }
 .footer-logo:hover .footer-logo-img { opacity: 1; }
+
+@media (max-width: 960px) {
+  .nav-logo-img { height: 40px; }
+}
