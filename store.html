@@ -8,10 +8,7 @@
 <link rel="stylesheet" href="style.css">
 <style>
   .store-body { max-width: 1200px; margin: 0 auto; padding: 80px 56px; }
-  .store-intro { max-width: 640px; margin-bottom: 80px; }
-  .store-intro-text { font-size: 19px; font-weight: 300; line-height: 1.9; color: var(--light); }
 
-  /* CATEGORY HEADER */
   .store-category { margin-bottom: 80px; }
   .category-header {
     display: flex;
@@ -35,10 +32,10 @@
     color: var(--gold);
   }
 
-  /* FREE DOWNLOADS */
+  /* DOWNLOADS */
   .downloads-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 2px;
   }
   .download-card {
@@ -101,17 +98,123 @@
   }
   .download-btn:hover { background: var(--white); }
 
-  /* WHAT YOU NEED NOTE */
-  .download-note {
+  /* MERCH */
+  .merch-iframe-wrap {
+    width: 100%;
     background: var(--dark);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    padding: 24px 28px;
-    margin-top: 2px;
-    margin-bottom: 80px;
+    overflow: hidden;
   }
+  .merch-bar {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .merch-bar-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .merch-bar-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .merch-bar-link:hover { color: var(--white); }
+  .merch-iframe-wrap iframe {
+    width: 100%;
+    height: 900px;
+    border: none;
+    display: block;
+  }
+
+  @media (max-width: 960px) {
+    .store-body { padding: 60px 24px; }
+    .downloads-grid { grid-template-columns: 1fr; }
+    .merch-iframe-wrap iframe { height: 700px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="/assets/images/logo.png" alt="32 Hour Group" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="manifesto.html">Manifesto</a></li>
+    <li><a href="principles.html">Principles</a></li>
+    <li><a href="commandments.html">Commandments</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="store.html" class="active">Store</a></li>
+  </ul>
+  <a href="initiation.html" class="nav-cta">Begin Initiation</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-tag">Resources & Merch</div>
+  <h1 class="page-title">The Store</h1>
+  <p class="page-subtitle">Free tools for your practice. Merch for those who carry the Doctrine with them.</p>
+</section>
+
+<div class="doctrine-strip">
+  <div class="strip-track">
+    <div class="strip-item">Practice Quietly</div>
+    <div class="strip-item">Deepen the Doctrine</div>
+    <div class="strip-item">Tools for Intentional Living</div>
+    <div class="strip-item">Not Performance</div>
+    <div class="strip-item">Practice Quietly</div>
+    <div class="strip-item">Deepen the Doctrine</div>
+    <div class="strip-item">Tools for Intentional Living</div>
+    <div class="strip-item">Not Performance</div>
+  </div>
+</div>
+
+<div class="store-body">
+
+  <!-- FREE DOWNLOADS -->
+  <div class="store-category reveal">
+    <div class="category-header">
+      <div class="category-title">Free Downloads</div>
+      <div class="category-label">Available to All Initiates</div>
+    </div>
+    <div class="downloads-grid">
+      <div class="download-card">
+        <div class="download-icon">📋</div>
+        <div class="download-tag">Digital · PDF</div>
+        <div class="download-name">Cycle Reflection Worksheet</div>
+        <p class="download-desc">The primary practice tool of the Doctrine. Rate each of the Five Domains, name what was neglected, complete the Sufficiency Statement, and set intentions for the next cycle.</p>
+        <div class="download-footer">
+          <div class="download-price">Free</div>
+          <a href="/assets/downloads/cycle-reflection-worksheet.pdf" class="download-btn" target="_blank" download>Download PDF</a>
+        </div>
+      </div>
+      <div class="download-card">
+        <div class="download-icon">📖</div>
+        <div class="download-tag">Digital · PDF</div>
+        <div class="download-name">Initiate Welcome Packet</div>
+        <p class="download-desc">The complete onboarding document — the Doctrine, the Five Domains, the Standard Cycle, daily practices, your rights as an Initiate, and the Entry Vows.</p>
+        <div class="download-footer">
+          <div class="download-price">Free</div>
+          <a href="/assets/downloads/initiate-welcome-packet.pdf" class="download-btn" target="_blank" download>Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- MERCH -->
-  <div class="store-category merch-section reveal">
+  <div class="store-category reveal">
     <div class="category-header">
       <div class="category-title">Merch</div>
       <div class="category-label">Live Store</div>
@@ -124,8 +227,7 @@
       <iframe
         src="https://32hourgroup.creator-spring.com/"
         title="32 Hour Group Merch Store"
-        loading="lazy"
-        allowfullscreen>
+        loading="lazy">
       </iframe>
     </div>
   </div>
@@ -133,7 +235,9 @@
 </div>
 
 <footer>
-  <a href="index.html" class="footer-logo"><img src="/assets/images/logo.png" alt="32 Hour Group" class="footer-logo-img"></a>
+  <a href="index.html" class="footer-logo">
+    <img src="/assets/images/logo.png" alt="32 Hour Group" class="footer-logo-img">
+  </a>
   <ul class="footer-links">
     <li><a href="principles.html">Principles</a></li>
     <li><a href="manifesto.html">Manifesto</a></li>
