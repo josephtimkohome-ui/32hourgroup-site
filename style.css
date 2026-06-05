@@ -308,5 +308,5 @@ footer {
 .footer-logo:hover .footer-logo-img { opacity: 1; }
 
 @media (max-width: 960px) {
-  .nav-logo-img { height: 90px; }
+  .nav-logo-img { height: 80px; }
 }
