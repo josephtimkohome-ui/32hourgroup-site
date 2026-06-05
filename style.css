@@ -41,7 +41,7 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 24px 56px;
+  padding: 16px 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -290,7 +290,7 @@ footer {
 
 /* LOGO */
 .nav-logo-img {
-  height: 80px;
+  height: 240px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -306,5 +306,5 @@ footer {
 .footer-logo:hover .footer-logo-img { opacity: 1; }
 
 @media (max-width: 960px) {
-  .nav-logo-img { height: 56px; }
+  .nav-logo-img { height: 120px; }
 }
