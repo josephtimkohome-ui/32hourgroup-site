@@ -344,7 +344,6 @@ footer {
 }
 
 .mobile-menu {
-  display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(10,10,10,0.98);
@@ -356,8 +355,10 @@ footer {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  display: none;
 }
 .mobile-menu.open {
+  display: flex;
   opacity: 1;
   pointer-events: all;
 }
@@ -373,10 +374,11 @@ footer {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 48px;
   letter-spacing: 3px;
-  color: var(--grey);
-  text-decoration: none;
+  color: var(--grey) !important;
+  text-decoration: none !important;
   transition: color 0.3s;
   line-height: 1.2;
+  -webkit-tap-highlight-color: transparent;
 }
 .mobile-menu-links a:hover,
 .mobile-menu-links a.active { color: var(--gold); }
@@ -411,5 +413,9 @@ footer {
   .nav-hamburger { display: flex; }
   .nav-links { display: none !important; }
   .nav-cta { display: none; }
-  .mobile-menu { display: flex; }
+  nav {
+    padding: 12px 24px;
+    justify-content: space-between;
+  }
+  nav.scrolled { padding: 10px 24px; }
 }
