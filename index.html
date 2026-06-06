@@ -4,905 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>32 Hour Group — You Are Not Behind</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-<!-- SEO -->
 <meta name="description" content="The 24-hour day was built for factories — not for your flourishing. The 32 Hour Group is a cycle-based framework for escaping burnout and reclaiming depth, rest, and intention. Free to join.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://32hourgroup.com/">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="32 Hour Group">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="32 Hour Group">
 <meta property="og:title" content="32 Hour Group — You Are Not Behind">
 <meta property="og:description" content="The 24-hour day was built for factories — not for your flourishing. The 32 Hour Group is a cycle-based framework for escaping burnout and reclaiming depth, rest, and intention. Free to join.">
 <meta property="og:url" content="https://32hourgroup.com/">
-<meta property="og:image" content="https://32hourgroup.com/assets/images/og-image.png">
+<meta property="og:image" content="https://32hourgroup.com/assets/images/og-dial.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="32 Hour Group — A Day Is 32 Hours">
-
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="32 Hour Group — You Are Not Behind">
 <meta name="twitter:description" content="The 24-hour day was built for factories — not for your flourishing. The 32 Hour Group is a cycle-based framework for escaping burnout and reclaiming depth, rest, and intention. Free to join.">
-<meta name="twitter:image" content="https://32hourgroup.com/assets/images/og-image.png">
-
-<!-- Icons -->
+<meta name="twitter:image" content="https://32hourgroup.com/assets/images/og-dial.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-<style>
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 56px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 50% 60% at 65% 45%, rgba(201,168,76,0.07) 0%, transparent 65%),
-      radial-gradient(ellipse 30% 40% at 20% 80%, rgba(201,168,76,0.03) 0%, transparent 60%);
-  }
-  .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 36px;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.2s forwards;
-  }
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(64px, 9vw, 136px);
-    line-height: 0.93;
-    letter-spacing: 2px;
-    color: var(--white);
-    max-width: 820px;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.35s forwards;
-  }
-  .hero-title em {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--gold);
-    display: block;
-    font-size: 0.82em;
-  }
-  .hero-problem {
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--light);
-    max-width: 520px;
-    margin-top: 40px;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.55s forwards;
-  }
-  .hero-problem strong { color: var(--white); font-weight: 400; }
-  .hero-cta {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    margin-top: 52px;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.75s forwards;
-  }
-  .hero-reassurance {
-    margin-top: 28px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--grey);
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.95s forwards;
-  }
-
-  /* PROBLEM */
-  .problem { padding: 120px 56px; border-top: 1px solid var(--border); }
-  .problem-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: start;
-  }
-  .problem-left { position: sticky; top: 120px; }
-  .problem-cards { display: flex; flex-direction: column; gap: 2px; }
-  .problem-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 36px 32px;
-    transition: border-color 0.3s;
-  }
-  .problem-card:hover { border-color: var(--gold-dim); }
-  .problem-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold-dim);
-    margin-bottom: 14px;
-  }
-  .problem-headline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 1px;
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-  .problem-desc {
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--grey);
-  }
-
-  /* GUIDE */
-  .guide { padding: 120px 56px; background: var(--dark); border-top: 1px solid var(--border); }
-  .guide-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: center;
-  }
-  .guide-badge {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 56px 48px;
-    text-align: center;
-    position: relative;
-  }
-  .guide-badge::before {
-    content: '';
-    position: absolute;
-    inset: 8px;
-    border: 1px solid var(--border);
-    pointer-events: none;
-  }
-  .guide-seal {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 28px;
-    background: var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--gold);
-    letter-spacing: 2px;
-    border: 1px solid var(--gold-dim);
-  }
-  .guide-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 40px;
-    letter-spacing: 3px;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .guide-title-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-  }
-  .guide-quote {
-    font-size: 17px;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--grey);
-  }
-  .guide-empathy-text {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--light);
-    margin-bottom: 28px;
-  }
-  .guide-credentials { display: flex; flex-direction: column; gap: 2px; }
-  .credential {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 20px 24px;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-  .credential-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; }
-  .credential-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: var(--light);
-    line-height: 1.5;
-  }
-
-  /* PLAN */
-  .plan { padding: 120px 56px; border-top: 1px solid var(--border); }
-  .plan-inner { max-width: 1200px; margin: 0 auto; }
-  .plan-header { text-align: center; margin-bottom: 80px; }
-  .plan-steps {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-  }
-  .plan-step {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 48px 36px 52px;
-    text-align: center;
-    transition: border-color 0.3s;
-  }
-  .plan-step:hover { border-color: var(--gold-dim); }
-  .plan-step-num {
-    width: 56px;
-    height: 56px;
-    background: var(--black);
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: var(--gold);
-    margin: 0 auto 28px;
-  }
-  .plan-step-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-  .plan-step-body {
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--grey);
-  }
-  .plan-cta { text-align: center; margin-top: 64px; }
-
-  /* DOMAINS */
-  .domains { padding: 120px 56px; background: var(--dark); border-top: 1px solid var(--border); }
-  .domains-inner { max-width: 1200px; margin: 0 auto; }
-  .domains-header { margin-bottom: 64px; }
-  .domains-intro {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--light);
-    max-width: 600px;
-    margin-top: 20px;
-  }
-  .domains-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-  }
-  .domain-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 36px 24px 44px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-  }
-  .domain-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .domain-card:hover { border-color: var(--gold-dim); transform: translateY(-4px); }
-  .domain-card:hover::after { transform: scaleX(1); }
-  .domain-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--gold-dim);
-    margin-bottom: 20px;
-  }
-  .domain-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 14px;
-  }
-  .domain-desc {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--grey);
-  }
-  .domain-range {
-    margin-top: 24px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: var(--gold-dim);
-  }
-
-  /* STAKES */
-  .stakes { padding: 120px 56px; border-top: 1px solid var(--border); }
-  .stakes-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-  .stakes-left {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 64px 56px;
-  }
-  .stakes-right {
-    background: #0f0f0a;
-    border: 1px solid var(--gold-dim);
-    padding: 64px 56px;
-    position: relative;
-    overflow: hidden;
-  }
-  .stakes-right::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
-  }
-  .stakes-heading {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(36px, 4vw, 56px);
-    letter-spacing: 2px;
-    margin-bottom: 36px;
-    line-height: 1.1;
-  }
-  .stakes-left .stakes-heading { color: var(--grey); }
-  .stakes-right .stakes-heading { color: var(--gold); position: relative; }
-  .stakes-list { display: flex; flex-direction: column; gap: 20px; list-style: none; }
-  .stakes-list li {
-    display: flex;
-    gap: 16px;
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 1.6;
-    align-items: flex-start;
-  }
-  .stakes-left .stakes-list li { color: var(--grey); }
-  .stakes-right .stakes-list li { color: var(--light); position: relative; }
-  .stake-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
-  .stakes-left .stake-icon { color: #444; }
-  .stakes-right .stake-icon { color: var(--gold); }
-
-  /* SUCCESS */
-  .success { padding: 120px 56px; background: var(--dark); border-top: 1px solid var(--border); text-align: center; }
-  .success-inner { max-width: 860px; margin: 0 auto; }
-  .success-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.3;
-    color: var(--white);
-    margin-bottom: 48px;
-  }
-  .success-title strong { font-style: normal; font-weight: 600; color: var(--gold); }
-  .success-pillars {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-bottom: 64px;
-    text-align: left;
-  }
-  .pillar {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 32px 28px;
-    transition: border-color 0.3s;
-  }
-  .pillar:hover { border-color: var(--gold-dim); }
-  .pillar-icon { font-size: 28px; margin-bottom: 16px; }
-  .pillar-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-  .pillar-body { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--grey); }
-
-  /* VOWS */
-  .vows { padding: 120px 56px; border-top: 1px solid var(--border); }
-  .vows-inner { max-width: 1200px; margin: 0 auto; }
-  .vows-header { margin-bottom: 56px; }
-  .vows-intro {
-    font-size: 19px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--light);
-    max-width: 540px;
-    margin-top: 16px;
-  }
-  .vows-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 64px;
-  }
-  .vow {
-    background: var(--card);
-    padding: 28px 36px;
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    transition: background 0.3s;
-  }
-  .vow:hover { background: #1a1a1a; }
-  .vow-dash { color: var(--gold); font-size: 20px; line-height: 1.4; flex-shrink: 0; }
-  .vow-text { font-size: 18px; font-weight: 300; font-style: italic; line-height: 1.5; color: var(--light); }
-
-  /* FINAL CTA */
-  .cta-final {
-    padding: 160px 56px;
-    background: var(--dark);
-    border-top: 1px solid var(--border);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-bg {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 65%);
-  }
-  .cta-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(56px, 8vw, 120px);
-    line-height: 0.95;
-    letter-spacing: 3px;
-    color: var(--white);
-    margin-bottom: 36px;
-    position: relative;
-  }
-  .cta-title em {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--gold);
-    display: block;
-    font-size: 0.78em;
-  }
-  .cta-sub {
-    font-size: 20px;
-    font-weight: 300;
-    color: var(--grey);
-    max-width: 480px;
-    margin: 0 auto 56px;
-    line-height: 1.7;
-    position: relative;
-  }
-  .cta-buttons {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-bottom: 28px;
-  }
-  .cta-footnote {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--grey);
-    position: relative;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 960px) {
-    .hero { padding: 100px 24px 60px; }
-    .problem { padding: 80px 24px; }
-    .problem-inner { grid-template-columns: 1fr; gap: 48px; }
-    .problem-left { position: static; }
-    .guide { padding: 80px 24px; }
-    .guide-inner { grid-template-columns: 1fr; gap: 48px; }
-    .plan { padding: 80px 24px; }
-    .plan-steps { grid-template-columns: 1fr; }
-    .domains { padding: 80px 24px; }
-    .domains-grid { grid-template-columns: 1fr 1fr; }
-    .stakes { padding: 80px 24px; }
-    .stakes-inner { grid-template-columns: 1fr; }
-    .success { padding: 80px 24px; }
-    .success-pillars { grid-template-columns: 1fr; }
-    .vows { padding: 80px 24px; }
-    .vows-grid { grid-template-columns: 1fr; }
-    .cta-final { padding: 100px 24px; }
-  }
-</style>
-
-<style>
-@media (max-width: 960px) {
-  #hamburger { display: block !important; }
-}
-</style>
-
-<script type="application/ld+json">
-[{"@context": "https://schema.org", "@type": "Organization", "name": "32 Hour Group", "url": "https://32hourgroup.com/", "logo": "https://32hourgroup.com/assets/images/logo.png", "description": "A cycle-based burnout recovery framework and community built on the Doctrine that a fully lived day requires 32 hours of intentional living.", "slogan": "A day is 32 hours. Live accordingly."}, {"@context": "https://schema.org", "@type": "WebSite", "name": "32 Hour Group", "url": "https://32hourgroup.com/"}]
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "32 Hour Group", "url": "https://32hourgroup.com/", "logo": "https://32hourgroup.com/assets/images/logo.png", "description": "A cycle-based burnout recovery framework and community built on the Doctrine that a fully lived day requires 32 hours of intentional living.", "slogan": "A day is 32 hours. Live accordingly."}, {"@context": "https://schema.org", "@type": "WebSite", "name": "32 Hour Group", "url": "https://32hourgroup.com/"}]</script>
 </head>
-<body>
+<body data-page="index">
 <a href="#main" class="skip-link">Skip to content</a>
-
-<nav id="nav">
-  <a href="index.html" class="nav-logo"><img src="/assets/images/logo.png" alt="32 Hour Group" class="nav-logo-img"></a>
-  <ul class="nav-links">
-    <li><a href="#problem">The Problem</a></li>
-    <li><a href="#plan">The Plan</a></li>
-    <li><a href="principles.html">Five Domains</a></li>
-    <li><a href="initiation.html">Initiate</a></li>
-  </ul>
+<nav id="nav-el">
+  <a class="nav-logo" href="index.html" aria-label="32 Hour Group home"><svg class="navmark" viewBox="0 0 60 60" aria-hidden="true"></svg><span>32 HOUR GROUP</span></a>
+  <ul class="nav-links"><li><a href="manifesto.html">Manifesto</a></li><li><a href="principles.html">Principles</a></li><li><a href="commandments.html">Commandments</a></li><li><a href="team.html">Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="store.html">Store</a></li><li><a class="nav-app" href="https://app.32hourgroup.com" target="_blank" rel="noopener">Start Journaling</a></li></ul>
   <a href="initiation.html" class="nav-cta">Begin Initiation</a>
-  <button onclick="openMenu()" style="display:none; background:none; border:none; cursor:pointer; padding:12px; z-index:200; position:relative;" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-    <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
-    <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
-    <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
-  </button>
+  <button class="nav-burger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
 </nav>
-
-<!-- MOBILE MENU -->
-<div id="mobileMenu" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#0a0a0a; z-index:9999; flex-direction:column; align-items:center; justify-content:center; gap:0; overflow:hidden;" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
-  <button onclick="closeMenu()" style="position:absolute; top:32px; right:28px; background:none; border:none; color:#888880; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; cursor:pointer; padding:12px; -webkit-tap-highlight-color:transparent;" aria-label="Close menu">CLOSE ✕</button>
-  <div style="display:flex; flex-direction:column; align-items:center; gap:0; margin-bottom:48px;">
-    <a href="manifesto.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Manifesto</a>
-    <a href="principles.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Principles</a>
-    <a href="commandments.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Commandments</a>
-    <a href="team.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Team</a>
-    <a href="faq.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">FAQ</a>
-    <a href="store.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Store</a>
-    <a href="https://app.32hourgroup.com" target="_blank" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#c9a84c; text-decoration:none; line-height:1.3; padding:4px 0;">Start Journaling</a>
-  </div>
-  <a href="initiation.html" style="font-family:'DM Mono',monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase; background:#c9a84c; color:#0a0a0a; padding:18px 44px; text-decoration:none; display:inline-block;">Begin Initiation</a>
+<div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">CLOSE ✕</button>
+  <ul class="mobile-links"><li><a href="manifesto.html">Manifesto</a></li><li><a href="principles.html">Principles</a></li><li><a href="commandments.html">Commandments</a></li><li><a href="team.html">Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="store.html">Store</a></li><li><a class="app" href="https://app.32hourgroup.com" target="_blank" rel="noopener">Start Journaling</a></li></ul>
+  <a href="initiation.html" class="mobile-cta">Begin Initiation</a>
 </div>
 
-<script>
-function openMenu() {
-  var m = document.getElementById("mobileMenu");
-  m.style.display = "flex";
-  m.setAttribute("aria-hidden", "false");
-  var h = document.getElementById("hamburger");
-  if (h) h.setAttribute("aria-expanded", "true");
-  document.body.style.overflow = "hidden";
-}
-function closeMenu() {
-  var m = document.getElementById("mobileMenu");
-  m.style.display = "none";
-  m.setAttribute("aria-hidden", "true");
-  var h = document.getElementById("hamburger");
-  if (h) { h.setAttribute("aria-expanded", "false"); h.focus(); }
-  document.body.style.overflow = "";
-}
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && document.getElementById("mobileMenu").style.display === "flex") closeMenu();
-});
-</script>
-
-
-
-
-<!-- HERO -->
-<section id="main" tabindex="-1" class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-tag">For the burned out. The over-scheduled. The ones who feel perpetually behind.</div>
-  <h1 class="hero-title">
-    You Are Not
-    <em>Behind.</em>
-  </h1>
-  <p class="hero-problem">
-    You're living in a system that was never designed for your flourishing. <strong>The 24-hour day was built for factories.</strong> Not for thinking. Not for building. Not for rest, connection, or meaning.
-  </p>
-  <div class="hero-cta">
-    <a href="initiation.html" class="btn-primary">Begin Your Initiation</a>
-    <a href="#problem" class="btn-ghost">See Why</a>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="eyebrow" style="margin-bottom:24px">For the burned out · the over-scheduled · the perpetually behind</div>
+  <div class="hero-dial">
+    <svg viewBox="0 0 560 560" style="width:100%;height:100%;overflow:visible"><g id="heroG"></g></svg>
+    <div class="dc"><div class="dc-kick">A Day Is</div><div class="dc-num" id="heroNum">0</div><div class="dc-unit">Hours</div></div>
   </div>
-  <div class="hero-reassurance">Free to join · No pressure to perform · Practice at your own pace</div>
+  <h2 class="hero-line">You Are Not <em>Behind.</em></h2>
+  <p class="hero-sub">The 24-hour day was built for factories — not for thinking, building, rest, or meaning. There is another way to keep time.</p>
+  <div class="btn-row" style="margin-top:42px"><a href="initiation.html" class="btn btn-primary">Begin Your Initiation</a><a href="#problem" class="btn btn-ghost">See Why</a></div>
 </section>
-
-<!-- DOCTRINE STRIP -->
-<div class="doctrine-strip">
-  <div class="strip-track">
-    <div class="strip-item">You Are Not Behind</div>
-    <div class="strip-item">You Are Practicing</div>
-    <div class="strip-item">Time Is Sufficient</div>
-    <div class="strip-item">A Day Is 32 Hours</div>
-    <div class="strip-item">Urgency Is Not Importance</div>
-    <div class="strip-item">Restore Depth</div>
-    <div class="strip-item">Live With Intention</div>
-    <div class="strip-item">You Are Not Behind</div>
-    <div class="strip-item">You Are Practicing</div>
-    <div class="strip-item">Time Is Sufficient</div>
-    <div class="strip-item">A Day Is 32 Hours</div>
-    <div class="strip-item">Urgency Is Not Importance</div>
-    <div class="strip-item">Restore Depth</div>
-    <div class="strip-item">Live With Intention</div>
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<section class="problem" id="problem">
-  <div class="problem-inner">
-    <div class="problem-left">
-      <div class="section-label reveal">The Problem</div>
-      <h2 class="section-title reveal reveal-delay-1">The System Was Never Built for You</h2>
-      <p class="body-text reveal reveal-delay-2">The industrial clock runs your life. And it's costing you more than productivity — it's costing you depth, rest, and the sense that your time actually belongs to you.</p>
+<div class="doctrine-strip"><div class="strip-track"><div class="strip-item">You Are Not Behind</div><div class="strip-item">You Are Practicing</div><div class="strip-item">Time Is Sufficient</div><div class="strip-item">A Day Is 32 Hours</div><div class="strip-item">Urgency Is Not Importance</div><div class="strip-item">Restore Depth</div><div class="strip-item">Live With Intention</div><div class="strip-item">You Are Not Behind</div><div class="strip-item">You Are Practicing</div><div class="strip-item">Time Is Sufficient</div><div class="strip-item">A Day Is 32 Hours</div><div class="strip-item">Urgency Is Not Importance</div><div class="strip-item">Restore Depth</div><div class="strip-item">Live With Intention</div></div></div>
+<section class="sec" id="problem">
+  <div class="sec-inner">
+    <div class="sec-head"><span class="eyebrow reveal">The Problem</span><h2 class="sec-title reveal reveal-delay-1">The System Was Never Built For You</h2></div>
+    <div class="cards3">
+      <div class="pcard reveal"><div class="t">External</div><h3>Too Much. Never Enough.</h3><p>Every day ends with more undone than when it started. The list never clears. The urgency never stops. You're running a race with no finish line.</p></div>
+      <div class="pcard reveal reveal-delay-1"><div class="t">Internal</div><h3>You Feel Like You're Failing.</h3><p>Somewhere you started believing the problem was you — your discipline, your focus, your worth. It isn't. It's the clock you inherited.</p></div>
+      <div class="pcard reveal reveal-delay-2"><div class="t">Philosophical</div><h3>You Deserve Depth.</h3><p>A human life should have room to think, build, rest, and matter. The compressed day stole all of it. You have the right to take it back.</p></div>
     </div>
-    <div class="problem-cards">
-      <div class="problem-card reveal">
-        <div class="problem-type">External Problem</div>
-        <div class="problem-headline">Too Much. Never Enough.</div>
-        <p class="problem-desc">Every day ends with more undone than when it started. The to-do list never clears. The urgency never stops. You're running a race with no finish line.</p>
+  </div>
+</section>
+<section class="sec alt" id="guide">
+  <div class="sec-inner">
+    <div class="guide-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:18px">The Guide</span>
+        <p class="guide-quote">We do not add hours to the day. We restore intention to time.</p>
+        <p style="font-size:17px;font-weight:300;line-height:1.8;color:var(--grey);margin-top:28px">Built by people who ran on urgency, measured worth in output, and treated rest as a reward — until they broke the cycle and built a new one. Father Joe is not a guru. He is a keeper of the Doctrine.</p>
       </div>
-      <div class="problem-card reveal reveal-delay-1">
-        <div class="problem-type">Internal Problem</div>
-        <div class="problem-headline">You Feel Like You're Failing.</div>
-        <p class="problem-desc">Somewhere along the way you started believing the problem was you — your discipline, your focus, your worth. It isn't. It's the clock you inherited.</p>
-      </div>
-      <div class="problem-card reveal reveal-delay-2">
-        <div class="problem-type">Philosophical Problem</div>
-        <div class="problem-headline">You Deserve a Life of Depth.</div>
-        <p class="problem-desc">A human life should have space to think, time to build, room for rest, and work that carries meaning. The compressed system stole all of it. You have the right to take it back.</p>
+      <div class="reveal reveal-delay-1">
+        <div class="coin"><svg viewBox="0 0 560 560" style="width:100%;height:100%;overflow:visible"><g id="coinG"></g></svg><div class="ct">32</div></div>
+        <div class="guide-name">Father Joe</div>
+        <div class="guide-role">Keeper of the Doctrine · Guided, not governing</div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- GUIDE -->
-<section class="guide">
-  <div class="guide-inner">
-    <div>
-      <div class="section-label reveal">The Guide</div>
-      <h2 class="section-title reveal reveal-delay-1">You Don't Need Another Productivity Hack.</h2>
-      <p class="guide-empathy-text reveal reveal-delay-2">We've been where you are. Running on urgency. Measuring worth in output. Treating rest as a reward instead of a requirement. The 32 Hour Group was built by people who broke that cycle — and built a new one.</p>
-      <div class="guide-credentials">
-        <div class="credential reveal reveal-delay-3">
-          <span class="credential-icon">◆</span>
-          <span class="credential-text">A proven cycle-based burnout recovery framework</span>
-        </div>
-        <div class="credential reveal reveal-delay-4">
-          <span class="credential-icon">◆</span>
-          <span class="credential-text">A growing community of Initiates practicing the Doctrine daily</span>
-        </div>
-        <div class="credential reveal reveal-delay-5">
-          <span class="credential-icon">◆</span>
-          <span class="credential-text">Guided by Father Joe — not a guru, a keeper of the Doctrine</span>
-        </div>
-      </div>
+<section class="sec" id="plan">
+  <div class="sec-inner">
+    <div class="sec-head"><span class="eyebrow reveal">The Plan</span><h2 class="sec-title reveal reveal-delay-1">Three Steps to Living Accordingly</h2></div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h3>Enter as an Initiate</h3><p>Join the community. Receive the Welcome Packet. You are in formation — not expected to perform, recruit, or have it all figured out. Just practice.</p></div>
+      <div class="step reveal reveal-delay-1"><div class="num">2</div><h3>Practice the Five Domains</h3><p>Honor Creation, Maintenance, Reflection, Connection, and Rest across each cycle. Use the Cycle Reflection Worksheet. Notice. Repair. Repeat.</p></div>
+      <div class="step reveal reveal-delay-2"><div class="num">3</div><h3>Live Accordingly</h3><p>Cycles are flexible, not rigid. Split them across days, run mini-cycles, repair neglected domains. Just stop living on someone else's clock.</p></div>
     </div>
-    <div class="guide-badge reveal reveal-delay-2">
-      <div class="guide-seal">32</div>
-      <div class="guide-name">Father Joe</div>
-      <div class="guide-title-text">Guided by 32 · Keeper of the Doctrine</div>
-      <p class="guide-quote">"We do not add hours to the day. We restore intention to time."</p>
-    </div>
+    <div style="text-align:center;margin-top:56px" class="reveal"><a href="initiation.html" class="btn btn-primary">Begin Your Initiation</a></div>
   </div>
 </section>
-
-<!-- PLAN -->
-<section class="plan" id="plan">
-  <div class="plan-inner">
-    <div class="plan-header">
-      <div class="section-label reveal">The Plan</div>
-      <h2 class="section-title reveal reveal-delay-1">Three Steps to Living Accordingly</h2>
-    </div>
-    <div class="plan-steps">
-      <div class="plan-step reveal">
-        <div class="plan-step-num">1</div>
-        <div class="plan-step-title">Enter as an Initiate</div>
-        <p class="plan-step-body">Join the community. Receive the Welcome Packet. You are in formation — not expected to perform, recruit, or have it all figured out. Just practice.</p>
-      </div>
-      <div class="plan-step reveal reveal-delay-2">
-        <div class="plan-step-num">2</div>
-        <div class="plan-step-title">Practice the Five Domains</div>
-        <p class="plan-step-body">Honor Creation, Maintenance, Reflection, Connection, and Rest across each cycle. Use the Cycle Reflection Worksheet. Notice. Repair. Repeat.</p>
-      </div>
-      <div class="plan-step reveal reveal-delay-4">
-        <div class="plan-step-num">3</div>
-        <div class="plan-step-title">Live Accordingly</div>
-        <p class="plan-step-body">Cycles are flexible, not rigid. You may split them across days, run mini-cycles, repair neglected domains. What you cannot do is keep living on someone else's clock.</p>
-      </div>
-    </div>
-    <div class="plan-cta reveal">
-      <a href="initiation.html" class="btn-primary">Begin Your Initiation</a>
-    </div>
+<section class="sec alt" id="domains">
+  <div class="sec-inner" style="text-align:center">
+    <div class="sec-head"><span class="eyebrow reveal">The Framework</span><h2 class="sec-title reveal reveal-delay-1">The Five Domains</h2></div>
+    <div class="reveal reveal-delay-1" style="max-width:440px;margin:0 auto"><div class="dial-wrap">
+      <svg viewBox="0 0 560 560"><g id="domHomeG"></g></svg>
+      <div class="dc"><div class="dc-num" id="domHomeNum" style="font-size:clamp(60px,10vw,104px)">32</div><div class="dc-unit">Hours</div><div class="dc-kick" id="domHomeSub" style="margin-top:10px;color:var(--grey)">One Complete Cycle</div></div>
+    </div></div>
+    <p class="reveal reveal-delay-2" style="font-size:17px;font-weight:300;color:var(--light);max-width:560px;margin:34px auto 0;line-height:1.7">Hover a domain. A cycle is incomplete when one is repeatedly ignored — sufficiency is the sum of all five.</p>
+    <div id="domHomeLegend" class="dial-legend reveal reveal-delay-2"></div>
+    <div style="margin-top:40px" class="reveal reveal-delay-2"><a href="principles.html" class="btn btn-ghost">Explore the Five Domains</a></div>
   </div>
 </section>
-
-<!-- FIVE DOMAINS -->
-<section class="domains" id="domains">
-  <div class="domains-inner">
-    <div class="domains-header">
-      <div class="section-label reveal">The Framework</div>
-      <h2 class="section-title reveal reveal-delay-1">The Five Domains</h2>
-      <p class="domains-intro reveal reveal-delay-2">A cycle is incomplete when one domain is repeatedly ignored. All five are required. All five are yours.</p>
-    </div>
-    <div class="domains-grid">
-      <div class="domain-card reveal">
-        <div class="domain-num">01</div>
-        <div class="domain-name">Creation</div>
-        <p class="domain-desc">Focused work, learning, and building. Uninterrupted depth where your most important work lives.</p>
-        <div class="domain-range">10–12 hrs / cycle</div>
+<section class="sec" id="stakes">
+  <div class="sec-inner">
+    <div class="sec-head"><span class="eyebrow reveal">The Stakes</span><h2 class="sec-title reveal reveal-delay-1">A Whole Cycle, or a Broken One</h2></div>
+    <div class="stakes-grid">
+      <div class="stk broken reveal">
+        <div class="stk-dialwrap"><svg viewBox="0 0 560 560" style="width:100%;height:100%;overflow:visible"><g id="brokenG"></g></svg></div>
+        <h3>If Nothing Changes</h3>
+        <ul>
+          <li><span class="ic">✕</span><span>Chronic urgency becomes your baseline</span></li>
+          <li><span class="ic">✕</span><span>Rest keeps feeling like failure</span></li>
+          <li><span class="ic">✕</span><span>Your deepest work never gets protected time</span></li>
+          <li><span class="ic">✕</span><span>Connection becomes performance, not presence</span></li>
+          <li><span class="ic">✕</span><span>You stay on someone else's clock for life</span></li>
+        </ul>
       </div>
-      <div class="domain-card reveal reveal-delay-1">
-        <div class="domain-num">02</div>
-        <div class="domain-name">Maintenance</div>
-        <p class="domain-desc">Health, administration, and stability. The care that keeps everything else functioning.</p>
-        <div class="domain-range">4–6 hrs / cycle</div>
-      </div>
-      <div class="domain-card reveal reveal-delay-2">
-        <div class="domain-num">03</div>
-        <div class="domain-name">Reflection</div>
-        <p class="domain-desc">Review, journaling, and meaning-making. Thought without pressure. The domain most people sacrifice first.</p>
-        <div class="domain-range">2–3 hrs / cycle</div>
-      </div>
-      <div class="domain-card reveal reveal-delay-3">
-        <div class="domain-num">04</div>
-        <div class="domain-name">Connection</div>
-        <p class="domain-desc">Family, community, and service. Meaningful presence with others — not scrolling, being.</p>
-        <div class="domain-range">4–6 hrs / cycle</div>
-      </div>
-      <div class="domain-card reveal reveal-delay-4">
-        <div class="domain-num">05</div>
-        <div class="domain-name">Rest</div>
-        <p class="domain-desc">Sleep and restorative stillness. Not earned. Not optional. Required. A cycle without rest is a broken cycle.</p>
-        <div class="domain-range">8–10 hrs / cycle</div>
+      <div class="stk whole reveal reveal-delay-1">
+        <div class="stk-dialwrap"><svg viewBox="0 0 560 560" style="width:100%;height:100%;overflow:visible"><g id="wholeG"></g></svg></div>
+        <h3>What Becomes Possible</h3>
+        <ul>
+          <li><span class="ic">◆</span><span>You stop confusing urgency with importance</span></li>
+          <li><span class="ic">◆</span><span>Rest becomes a protected domain, not a reward</span></li>
+          <li><span class="ic">◆</span><span>Your best work gets the depth it deserves</span></li>
+          <li><span class="ic">◆</span><span>Connection feels real, not performed</span></li>
+          <li><span class="ic">◆</span><span>Time, lived with intention, is sufficient</span></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
-
-<!-- STAKES -->
-<section class="stakes">
-  <div class="stakes-inner">
-    <div class="stakes-left reveal">
-      <div class="section-label" style="color: var(--grey); margin-bottom: 20px;">Without the Doctrine</div>
-      <h3 class="stakes-heading">If Nothing Changes</h3>
-      <ul class="stakes-list">
-        <li><span class="stake-icon">✕</span><span>Chronic urgency becomes your baseline</span></li>
-        <li><span class="stake-icon">✕</span><span>Rest continues to feel like failure</span></li>
-        <li><span class="stake-icon">✕</span><span>Your deepest work never gets protected time</span></li>
-        <li><span class="stake-icon">✕</span><span>Connection becomes a performance, not a presence</span></li>
-        <li><span class="stake-icon">✕</span><span>You stay on someone else's clock for the rest of your life</span></li>
-      </ul>
-    </div>
-    <div class="stakes-right reveal reveal-delay-2">
-      <div class="section-label" style="color: var(--gold); margin-bottom: 20px;">With the Doctrine</div>
-      <h3 class="stakes-heading">What Becomes Possible</h3>
-      <ul class="stakes-list">
-        <li><span class="stake-icon">◆</span><span>You stop confusing urgency with importance</span></li>
-        <li><span class="stake-icon">◆</span><span>Rest becomes a protected domain, not a reward</span></li>
-        <li><span class="stake-icon">◆</span><span>Your best work gets the depth and time it deserves</span></li>
-        <li><span class="stake-icon">◆</span><span>Connection feels real, not performed</span></li>
-        <li><span class="stake-icon">◆</span><span>Time, when lived with intention, is sufficient</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SUCCESS -->
-<section class="success">
-  <div class="success-inner">
-    <div class="section-label reveal">The Promise</div>
-    <h2 class="success-title reveal reveal-delay-1">
-      Imagine ending a cycle knowing you gave your <strong>best attention</strong> to what matters most — and that rest was not something you earned, but something you simply <strong>lived.</strong>
-    </h2>
-    <div class="success-pillars">
-      <div class="pillar reveal">
-        <div class="pillar-icon">⏳</div>
-        <div class="pillar-title">Time Reclaimed</div>
-        <p class="pillar-body">A framework that expands how you experience time — not by adding hours, but by restoring intention.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="pillar-icon">🜂</div>
-        <div class="pillar-title">Depth Restored</div>
-        <p class="pillar-body">Focused, uninterrupted Creation time that actually moves the work that matters most to you forward.</p>
-      </div>
-      <div class="pillar reveal reveal-delay-4">
-        <div class="pillar-icon">∞</div>
-        <div class="pillar-title">Cycles, Not Days</div>
-        <p class="pillar-body">A flexible rhythm that fits real life — not a rigid rule, but a living practice that repairs and renews.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VOWS -->
-<section class="vows" id="initiate">
-  <div class="vows-inner">
-    <div class="vows-header">
-      <div class="section-label reveal">Before You Enter</div>
-      <h2 class="section-title reveal reveal-delay-1">The Entry Vows</h2>
-      <p class="vows-intro reveal reveal-delay-2">You are not required to memorize these. They are here to set your orientation — and to remind you what you are choosing.</p>
-    </div>
-    <div class="vows-grid reveal reveal-delay-3">
-      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I affirm that time, when lived with intention, is sufficient.</span></div>
-      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will not mistake urgency for importance.</span></div>
-      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I commit to depth where depth is required.</span></div>
-      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will protect rest as essential, not optional.</span></div>
-      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I accept responsibility for my attention.</span></div>
-      <div class="vow"><span class="vow-dash">—</span><span class="vow-text">I will not impose this doctrine on others.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="cta-final">
-  <div class="cta-bg"></div>
-  <div class="section-label reveal" style="position: relative;">The Invitation</div>
-  <h2 class="cta-title reveal reveal-delay-1">
-    A Day Is
-    <em>32 Hours.</em>
-  </h2>
-  <p class="cta-sub reveal reveal-delay-2">You do not need to rush. You do not need to impress. You do not need to perform. Practice quietly. Notice what changes. Repair what is neglected.</p>
-  <div class="cta-buttons reveal reveal-delay-3">
-    <a href="initiation.html" class="btn-primary">Become an Initiate</a>
-    <a href="manifesto.html" class="btn-ghost">Read the Manifesto</a>
-  </div>
-  <p class="cta-footnote reveal reveal-delay-4">Live accordingly.</p>
+<section class="final">
+  <div class="final-glow"></div>
+  <span class="eyebrow reveal" style="position:relative">The Invitation</span>
+  <h2 class="reveal reveal-delay-1" style="margin-top:24px">A Day Is<em>32 Hours.</em></h2>
+  <p class="reveal reveal-delay-2">You do not need to rush. You do not need to perform. Practice quietly. Notice what changes. Repair what is neglected.</p>
+  <div class="btn-row reveal reveal-delay-2" style="position:relative"><a href="initiation.html" class="btn btn-primary">Become an Initiate</a><a href="manifesto.html" class="btn btn-ghost">Read the Manifesto</a></div>
 </section>
 
 <footer>
-  <a href="index.html" class="footer-logo"><img src="/assets/images/logo.png" alt="32 Hour Group" class="footer-logo-img"></a>
-  <ul class="footer-links">
-    <li><a href="principles.html">Principles</a></li>
-    <li><a href="manifesto.html">Manifesto</a></li>
-    <li><a href="commandments.html">Commandments</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="initiation.html">Initiate</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="https://app.32hourgroup.com" target="_blank">Start Journaling</a></li>
-  </ul>
-  <div class="footer-copy">© 2025 32 Hour Group</div>
+  <a class="footer-logo" href="index.html" aria-label="32 Hour Group home"><svg class="navmark" viewBox="0 0 60 60" aria-hidden="true"></svg><span>32 HOUR GROUP</span></a>
+  <ul class="footer-links"><li><a href="principles.html">Principles</a></li><li><a href="manifesto.html">Manifesto</a></li><li><a href="commandments.html">Commandments</a></li><li><a href="team.html">Team</a></li><li><a href="faq.html">FAQ</a></li><li><a href="initiation.html">Initiate</a></li><li><a href="store.html">Store</a></li><li><a href="https://app.32hourgroup.com" target="_blank" rel="noopener">Start Journaling</a></li></ul>
+  <div class="footer-copy">© 2026 · Live Accordingly</div>
 </footer>
-
-<script>
-  const nav = document.getElementById("nav");
-  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 60); });
-  const reveals = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-  }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
-  reveals.forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
