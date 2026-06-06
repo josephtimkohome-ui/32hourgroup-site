@@ -19,6 +19,30 @@
 
 html { scroll-behavior: smooth; }
 
+/* SKIP LINK (accessibility) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 22px;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 body {
   background: var(--black);
   color: var(--white);
@@ -317,106 +341,11 @@ footer {
 
 /* ============================================
    MOBILE NAV
+   The hamburger (#hamburger) and overlay (#mobileMenu) are rendered
+   inline in each page's markup; their show/hide is handled by inline
+   styles and the per-page `#hamburger { display:block }` media query.
    ============================================ */
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-  padding: 12px;
-  background: none;
-  border: none;
-  z-index: 200;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  min-width: 48px;
-  min-height: 48px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-.nav-hamburger span {
-  display: block;
-  width: 28px;
-  height: 2px;
-  background: var(--white);
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-.nav-hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.nav-hamburger.open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.nav-hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(10,10,10,0.98);
-  z-index: 500;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: none;
-}
-.mobile-menu-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 40px;
-}
-.mobile-menu-links a {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px;
-  letter-spacing: 3px;
-  color: var(--grey) !important;
-  text-decoration: none !important;
-  transition: color 0.3s;
-  line-height: 1.2;
-  -webkit-tap-highlight-color: transparent;
-}
-.mobile-menu-links a:hover,
-.mobile-menu-links a.active { color: var(--gold); }
-.mobile-menu-cta {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
-  padding: 16px 40px;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-.mobile-menu-cta:hover { background: var(--white); }
-.mobile-menu-close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--grey);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 8px;
-}
-
 @media (max-width: 960px) {
-  .nav-hamburger { display: flex; }
   .nav-links { display: none !important; }
   .nav-cta { display: none; }
   nav {
@@ -435,4 +364,20 @@ footer {
 }
 .nav-links a[href*="app.32hourgroup"]:hover {
   color: var(--white) !important;
+}
+
+/* REDUCED MOTION — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Ensure content animated in via fadeUp/reveal stays visible */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-tag, .hero-title, .hero-problem, .hero-cta, .hero-reassurance,
+  .page-tag, .page-title, .page-subtitle { opacity: 1 !important; }
+  .strip-track { animation: none !important; }
 }
