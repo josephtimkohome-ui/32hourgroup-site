@@ -61,10 +61,15 @@
     DOMAINS.forEach(function (d, idx) {
       var a0 = hr * DEG + gap, a1 = (hr + d.h) * DEG - gap; hr += d.h;
       var stroke = opts.stroke ? opts.stroke(idx, d) : d.color;
-      var cls = "arc" + (opts.interactive ? " interactive" : "");
-      var attrs = { "class": cls, d: arcD(cx, cy, r, a0, a1), stroke: stroke, "stroke-width": sw };
-      if (opts.interactive) { attrs.tabindex = "0"; attrs.role = "button"; attrs["aria-label"] = d.name + ", " + d.range; }
-      var p = el("path", attrs); p.dataset.idx = idx; g.appendChild(p); arcs.push(p);
+      var dd = arcD(cx, cy, r, a0, a1);
+      var p = el("path", { "class": "arc" + (opts.interactive ? " interactive" : ""), d: dd, stroke: stroke, "stroke-width": sw });
+      p.dataset.idx = idx; g.appendChild(p); arcs.push(p);
+      if (opts.interactive) {
+        // fat invisible hit-area so the whole arc band is easy to hover/tap
+        var hit = el("path", { "class": "arc-hit", d: dd, "stroke-width": Math.max(sw * 2.6, 40),
+          tabindex: "0", role: "button", "aria-label": d.name + ", " + d.range });
+        hit.dataset.idx = idx; g.appendChild(hit); p.hit = hit;
+      }
     });
     if (opts.draw && !reduce) {
       arcs.forEach(function (p, i) {
@@ -119,7 +124,9 @@
       if (panel) panel(idx);
     }
     function render() { paint(selected); }
-    arcs.concat(legs).forEach(function (node) {
+    // event targets: the fat hit-areas (fallback to the visual arc) + legend chips
+    var nodes = arcs.map(function (a) { return a.hit || a; }).concat(legs);
+    nodes.forEach(function (node) {
       var idx = +node.dataset.idx;
       node.addEventListener("mouseenter", function () { paint(idx); });
       node.addEventListener("mouseleave", render);
@@ -225,8 +232,7 @@
             if (P.dcN) { P.dcN.textContent = d.h; P.dcN.style.color = d.color; } if (P.dcS) P.dcS.textContent = "of 32 · " + d.name;
           }
         }
-        if (reduce || !P.wrap) { swap(); return; }
-        P.wrap.classList.add("swap"); setTimeout(function () { swap(); P.wrap.classList.remove("swap"); }, 180);
+        swap();
       }
       wireInteractive(pa, { legend: $("prinLegend"), panel: setPanel, locking: true });
     }
