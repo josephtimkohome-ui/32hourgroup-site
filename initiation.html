@@ -3,8 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- SEO -->
+<meta name="description" content="Begin your initiation into the 32 Hour Group. No pressure to perform — just practice. Receive the Welcome Packet and join a community living accordingly.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://32hourgroup.com/initiation.html">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="32 Hour Group">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="32 Hour Group">
+<meta property="og:title" content="Begin Your Initiation — 32 Hour Group">
+<meta property="og:description" content="Begin your initiation into the 32 Hour Group. No pressure to perform — just practice. Receive the Welcome Packet and join a community living accordingly.">
+<meta property="og:url" content="https://32hourgroup.com/initiation.html">
+<meta property="og:image" content="https://32hourgroup.com/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="32 Hour Group — A Day Is 32 Hours">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Begin Your Initiation — 32 Hour Group">
+<meta name="twitter:description" content="Begin your initiation into the 32 Hour Group. No pressure to perform — just practice. Receive the Welcome Packet and join a community living accordingly.">
+<meta name="twitter:image" content="https://32hourgroup.com/assets/images/og-image.png">
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
 
 <style>
 
@@ -222,6 +254,7 @@
 
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 <nav id="nav">
   <a href="index.html" class="nav-logo"><img src="/assets/images/logo.png" alt="32 Hour Group" class="nav-logo-img"></a>
   <ul class="nav-links">
@@ -234,7 +267,7 @@
     <li><a href="https://app.32hourgroup.com" target="_blank">Start Journaling</a></li>
   </ul>
   <a href="initiation.html" class="nav-cta" style="background: var(--white); color: var(--black);">You're Here</a>
-  <button onclick="openMenu()" style="display:none; background:none; border:none; cursor:pointer; padding:12px; z-index:200; position:relative;" id="hamburger">
+  <button onclick="openMenu()" style="display:none; background:none; border:none; cursor:pointer; padding:12px; z-index:200; position:relative;" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
     <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
     <div style="width:28px; height:2px; background:#f0ece4; margin:5px 0;"></div>
@@ -242,8 +275,8 @@
 </nav>
 
 <!-- MOBILE MENU -->
-<div id="mobileMenu" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#0a0a0a; z-index:9999; flex-direction:column; align-items:center; justify-content:center; gap:0; overflow:hidden;">
-  <button onclick="closeMenu()" style="position:absolute; top:32px; right:28px; background:none; border:none; color:#888880; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; cursor:pointer; padding:12px; -webkit-tap-highlight-color:transparent;">CLOSE ✕</button>
+<div id="mobileMenu" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#0a0a0a; z-index:9999; flex-direction:column; align-items:center; justify-content:center; gap:0; overflow:hidden;" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <button onclick="closeMenu()" style="position:absolute; top:32px; right:28px; background:none; border:none; color:#888880; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; cursor:pointer; padding:12px; -webkit-tap-highlight-color:transparent;" aria-label="Close menu">CLOSE ✕</button>
   <div style="display:flex; flex-direction:column; align-items:center; gap:0; margin-bottom:48px;">
     <a href="manifesto.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Manifesto</a>
     <a href="principles.html" style="font-family:'Bebas Neue',sans-serif; font-size:44px; letter-spacing:3px; color:#888880; text-decoration:none; line-height:1.3; padding:4px 0;">Principles</a>
@@ -260,19 +293,28 @@
 function openMenu() {
   var m = document.getElementById("mobileMenu");
   m.style.display = "flex";
+  m.setAttribute("aria-hidden", "false");
+  var h = document.getElementById("hamburger");
+  if (h) h.setAttribute("aria-expanded", "true");
   document.body.style.overflow = "hidden";
 }
 function closeMenu() {
   var m = document.getElementById("mobileMenu");
   m.style.display = "none";
+  m.setAttribute("aria-hidden", "true");
+  var h = document.getElementById("hamburger");
+  if (h) { h.setAttribute("aria-expanded", "false"); h.focus(); }
   document.body.style.overflow = "";
 }
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && document.getElementById("mobileMenu").style.display === "flex") closeMenu();
+});
 </script>
 
 
 
 
-<section class="page-hero" style="min-height: 55vh;">
+<section id="main" tabindex="-1" class="page-hero" style="min-height: 55vh;">
   <div class="page-hero-bg"></div>
   <div class="page-tag">The First Step</div>
   <h1 class="page-title">Begin Your Initiation</h1>
