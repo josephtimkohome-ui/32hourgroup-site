@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The 32-Dial — Hero Prototype · 32 Hour Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a; --dark:#111; --card:#161616; --border:#2a2a2a;
+    --gold:#c9a84c; --gold-bright:#f0d479; --gold-dim:#8a6f30;
+    --white:#f0ece4; --grey:#888880; --light:#d4d0c8;
+    --d-creation:#f0d479; --d-maintenance:#d8b85a; --d-reflection:#c9a84c;
+    --d-connection:#b08f3e; --d-rest:#8a6f30;
+    --ease:cubic-bezier(.16,.84,.34,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black); color:var(--white);
+    font-family:'Cormorant Garamond',Georgia,serif; overflow-x:hidden;
+    min-height:100vh;
+  }
+  /* grain */
+  body::after{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  /* PROTO BAR */
+  .proto-bar{
+    position:fixed; top:0; left:0; right:0; z-index:60;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 32px;
+    font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--grey);
+    background:linear-gradient(to bottom,rgba(10,10,10,.96),transparent);
+  }
+  .proto-bar .brand{color:var(--gold);}
+  .proto-bar .tag{border:1px solid var(--gold-dim); color:var(--gold); padding:5px 12px;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    padding:96px 24px 56px; position:relative; text-align:center;
+  }
+  .hero-glow{
+    position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 46% 52% at 50% 44%, rgba(201,168,76,.10) 0%, transparent 66%);
+  }
+  .eyebrow{
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:4px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:26px; opacity:0; animation:rise .9s var(--ease) .15s forwards;
+  }
+
+  /* DIAL */
+  .dial-wrap{
+    position:relative; width:min(78vw,560px); aspect-ratio:1/1; margin:4px auto 0;
+  }
+  #dial{ width:100%; height:100%; display:block; overflow:visible; }
+  #dialGroup{ transform-origin:280px 280px; }
+
+  .track{ fill:none; stroke:var(--border); stroke-width:16; }
+  .arc{
+    fill:none; stroke-width:16; stroke-linecap:butt;
+    transition:stroke-width .6s var(--ease), opacity .6s var(--ease), filter .6s var(--ease);
+    cursor:pointer;
+  }
+  .arc.dim{ opacity:.22; }
+  .arc.active{ stroke-width:23; filter:brightness(1.55) drop-shadow(0 0 14px rgba(240,212,121,.55)); }
+  .tick{ stroke:var(--gold-dim); stroke-width:1; opacity:.5; }
+  .tick.major{ stroke:var(--gold); stroke-width:1.4; opacity:.85; }
+  .tick-num{
+    fill:var(--grey); font-family:'DM Mono',monospace; font-size:13px;
+    text-anchor:middle; dominant-baseline:middle; letter-spacing:1px;
+  }
+
+  .dial-center{
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; pointer-events:none;
+  }
+  .dc-kicker{
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:5px; text-transform:uppercase;
+    color:var(--grey); margin-bottom:2px;
+  }
+  .dc-num{
+    font-family:'Bebas Neue',sans-serif; font-size:clamp(96px,17vw,170px);
+    line-height:.86; color:var(--gold); letter-spacing:2px;
+    text-shadow:0 0 38px rgba(201,168,76,.28);
+    transition:color .5s var(--ease), text-shadow .5s var(--ease);
+  }
+  .dc-unit{
+    font-family:'DM Mono',monospace; font-size:13px; letter-spacing:9px; text-transform:uppercase;
+    color:var(--light); margin-top:4px; padding-left:9px;
+  }
+
+  /* READOUT */
+  .readout{
+    margin-top:30px; min-height:50px; max-width:560px;
+    display:flex; flex-direction:column; gap:7px; align-items:center;
+    opacity:0; animation:rise .9s var(--ease) 1.4s forwards;
+  }
+  .readout-head{
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--gold); transition:color .35s var(--ease);
+  }
+  .readout-body{
+    font-size:18px; font-weight:300; line-height:1.55; color:var(--light); font-style:italic;
+    transition:opacity .35s var(--ease);
+  }
+
+  /* LEGEND */
+  .legend{
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+    margin-top:28px; opacity:0; animation:rise .9s var(--ease) 1.55s forwards;
+  }
+  .leg{
+    display:flex; align-items:center; gap:9px;
+    background:var(--card); border:1px solid var(--border);
+    padding:9px 15px; cursor:pointer; transition:border-color .35s var(--ease), background .35s var(--ease);
+  }
+  .leg:hover,.leg.active{ border-color:var(--gold-dim); background:#1b1a16; }
+  .leg .dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .leg .nm{ font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--light); }
+  .leg .hr{ font-family:'DM Mono',monospace; font-size:10px; letter-spacing:1px; color:var(--gold-dim); }
+
+  /* CTA */
+  .cta{ display:flex; gap:22px; align-items:center; justify-content:center; flex-wrap:wrap;
+    margin-top:42px; opacity:0; animation:rise .9s var(--ease) 1.7s forwards; }
+  .btn{
+    font-family:'DM Mono',monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase;
+    text-decoration:none; transition:all .35s var(--ease);
+  }
+  .btn-primary{ background:var(--gold); color:var(--black); padding:17px 42px; }
+  .btn-primary:hover{ background:var(--white); transform:translateY(-2px); }
+  .btn-ghost{ color:var(--grey); display:inline-flex; align-items:center; gap:9px; }
+  .btn-ghost::after{ content:'→'; transition:transform .35s var(--ease); }
+  .btn-ghost:hover{ color:var(--white); }
+  .btn-ghost:hover::after{ transform:translateX(5px); }
+
+  .scroll-hint{
+    margin-top:54px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px;
+    text-transform:uppercase; color:var(--grey); opacity:0; animation:rise .9s var(--ease) 1.9s forwards;
+  }
+  .scroll-hint span{ display:block; width:1px; height:34px; margin:14px auto 0;
+    background:linear-gradient(var(--gold-dim),transparent); }
+
+  @keyframes rise{ from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+  @media (max-width:600px){
+    .dc-unit{ letter-spacing:6px; }
+    .readout-body{ font-size:16px; }
+    .proto-bar{ padding:14px 18px; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+    .eyebrow,.readout,.legend,.cta,.scroll-hint{ opacity:1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="proto-bar">
+  <span class="brand">32 HOUR GROUP</span>
+  <span class="tag">Hero Prototype · The 32-Dial</span>
+</div>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="eyebrow">For the over-scheduled · the perpetually behind</div>
+
+  <div class="dial-wrap">
+    <svg id="dial" viewBox="0 0 560 560" aria-label="The 32-hour cycle dial">
+      <g id="dialGroup"></g>
+    </svg>
+    <div class="dial-center">
+      <div class="dc-kicker">A Day Is</div>
+      <div class="dc-num" id="counter">0</div>
+      <div class="dc-unit">Hours</div>
+    </div>
+  </div>
+
+  <div class="readout" id="readout">
+    <div class="readout-head" id="rHead">Five Domains · One Cycle</div>
+    <div class="readout-body" id="rBody">Hover the dial. A complete day is not 24 hours of doing — it is 32 hours of intentional living.</div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="cta">
+    <a href="initiation.html" class="btn btn-primary">Begin Your Initiation</a>
+    <a href="manifesto.html" class="btn btn-ghost">Read the Doctrine</a>
+  </div>
+
+  <div class="scroll-hint">Live accordingly<span></span></div>
+</section>
+
+<script>
+const CX=280, CY=280, R=200, TRACK_R=200;
+const GAP=2.2;                      // degrees of gap on each side of an arc
+const DEG_PER_HR=360/32;           // 11.25
+const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// Five domains — hours sum to exactly 32
+const DOMAINS=[
+  {name:'Creation',   h:11, range:'10–12 hrs', color:'var(--d-creation)',    raw:'#f0d479',
+   desc:'Focused work, learning, and building — uninterrupted depth where your most important work lives.'},
+  {name:'Maintenance',h:5,  range:'4–6 hrs',  color:'var(--d-maintenance)', raw:'#d8b85a',
+   desc:'Health, administration, and stability. The quiet care that keeps everything else functioning.'},
+  {name:'Reflection', h:2,  range:'2–3 hrs',  color:'var(--d-reflection)',  raw:'#c9a84c',
+   desc:'Review, journaling, and meaning-making. Thought without pressure — the domain most sacrifice first.'},
+  {name:'Connection', h:5,  range:'4–6 hrs',  color:'var(--d-connection)',  raw:'#b08f3e',
+   desc:'Family, community, and service. Meaningful presence with others — being, not scrolling.'},
+  {name:'Rest',       h:9,  range:'8–10 hrs', color:'var(--d-rest)',        raw:'#8a6f30',
+   desc:'Sleep and restorative stillness. Not earned. Not optional. Required. A cycle without rest is broken.'},
+];
+
+const NS='http://www.w3.org/2000/svg';
+const g=document.getElementById('dialGroup');
+const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
+// angle measured clockwise from 12 o'clock
+const pt=(r,deg)=>{const a=deg*Math.PI/180;return{x:CX+r*Math.sin(a),y:CY-r*Math.cos(a)};};
+function arcPath(r,a0,a1){
+  const p0=pt(r,a0),p1=pt(r,a1);
+  const large=((a1-a0)%360+360)%360>180?1:0;
+  return `M ${p0.x} ${p0.y} A ${r} ${r} 0 ${large} 1 ${p1.x} ${p1.y}`;
+}
+
+// 1) track ring
+g.appendChild(el('circle',{class:'track',cx:CX,cy:CY,r:TRACK_R}));
+
+// 2) ticks (32) + quarter numbers
+for(let i=0;i<32;i++){
+  const deg=i*DEG_PER_HR;
+  const major=[0,8,16,24].includes(i);
+  const r0=R+13, r1=R+(major?27:20);
+  const a=pt(r0,deg), b=pt(r1,deg);
+  g.appendChild(el('line',{class:'tick'+(major?' major':''),x1:a.x,y1:a.y,x2:b.x,y2:b.y}));
+}
+[[8,'8'],[16,'16'],[24,'24'],[0,'32']].forEach(([i,t])=>{
+  const p=pt(R+46,i*DEG_PER_HR);
+  const n=el('text',{class:'tick-num',x:p.x,y:p.y}); n.textContent=t; g.appendChild(n);
+});
+
+// 3) domain arcs
+const arcs=[]; let hr=0;
+DOMAINS.forEach((d,idx)=>{
+  const a0=hr*DEG_PER_HR+GAP;
+  const a1=(hr+d.h)*DEG_PER_HR-GAP;
+  hr+=d.h;
+  const path=el('path',{class:'arc','d':arcPath(R,a0,a1),stroke:d.color});
+  path.dataset.idx=idx;
+  g.appendChild(path);
+  arcs.push(path);
+});
+
+// 4) draw-in animation
+arcs.forEach((p,i)=>{
+  const len=p.getTotalLength();
+  p.style.strokeDasharray=len;
+  if(reduce){ p.style.strokeDashoffset=0; return; }
+  p.style.strokeDashoffset=len;
+  p.style.transition=`stroke-dashoffset 1.1s var(--ease) ${0.35+i*0.16}s`;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{p.style.strokeDashoffset=0;}));
+});
+
+// 5) intro: whole dial settles + counter ticks up
+const grp=document.getElementById('dialGroup');
+const counter=document.getElementById('counter');
+if(reduce){
+  grp.style.opacity=1; counter.textContent='32';
+}else{
+  grp.style.transformOrigin='280px 280px';
+  grp.style.opacity='0';
+  grp.style.transform='rotate(-22deg) scale(.94)';
+  grp.style.transition='transform 1.8s var(--ease), opacity 1.2s var(--ease)';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    grp.style.opacity='1'; grp.style.transform='rotate(0deg) scale(1)';
+  }));
+  // counter 0 -> 32
+  const dur=2000, t0=performance.now();
+  (function tick(now){
+    const k=Math.min(1,(now-t0)/dur);
+    const e=1-Math.pow(1-k,3);
+    counter.textContent=Math.round(e*32);
+    if(k<1) requestAnimationFrame(tick);
+  })(t0);
+}
+
+// 6) interaction (arcs + legend synced)
+const rHead=document.getElementById('rHead'), rBody=document.getElementById('rBody');
+const numEl=document.getElementById('counter');
+const legend=document.getElementById('legend');
+const legs=DOMAINS.map((d,idx)=>{
+  const leg=document.createElement('div'); leg.className='leg'; leg.dataset.idx=idx;
+  leg.innerHTML=`<span class="dot" style="background:${d.color}"></span>`+
+                `<span class="nm">${d.name}</span><span class="hr">${d.range}</span>`;
+  legend.appendChild(leg); return leg;
+});
+
+function focusDomain(idx){
+  const d=DOMAINS[idx];
+  arcs.forEach((p,i)=>{ p.classList.toggle('active',i===idx); p.classList.toggle('dim',i!==idx); });
+  legs.forEach((l,i)=>l.classList.toggle('active',i===idx));
+  rHead.textContent=`${d.name} · ${d.range} / cycle`;
+  rHead.style.color=d.raw;
+  rBody.textContent=d.desc;
+  numEl.style.color=d.raw;
+}
+function resetDomain(){
+  arcs.forEach(p=>{p.classList.remove('active','dim');});
+  legs.forEach(l=>l.classList.remove('active'));
+  rHead.textContent='Five Domains · One Cycle'; rHead.style.color='';
+  rBody.textContent='Hover the dial. A complete day is not 24 hours of doing — it is 32 hours of intentional living.';
+  numEl.style.color='';
+}
+[...arcs,...legs].forEach(node=>{
+  const idx=+node.dataset.idx;
+  node.addEventListener('mouseenter',()=>focusDomain(idx));
+  node.addEventListener('focus',()=>focusDomain(idx));
+  node.addEventListener('mouseleave',resetDomain);
+});
+legend.addEventListener('mouseleave',resetDomain);
+</script>
+</body>
+</html>
