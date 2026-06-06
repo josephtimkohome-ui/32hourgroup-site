@@ -109,6 +109,9 @@ nav.scrolled{ background:rgba(10,10,10,.98); border-bottom:1px solid var(--borde
 .arc{ fill:none; stroke-width:16; stroke-linecap:butt; transition:stroke-width .55s var(--ease), opacity .55s var(--ease), filter .55s var(--ease); }
 .arc.dim{ opacity:.18; } .arc.active{ stroke-width:24; filter:brightness(1.55) drop-shadow(0 0 14px rgba(240,212,121,.55)); }
 .arc.interactive{ cursor:pointer; }
+.arc-hit{ fill:none; stroke:transparent; pointer-events:stroke; cursor:pointer; }
+/* keyboard focus is shown via the arc glow (paint on focus), not a bounding box */
+.arc:focus,.arc:focus-visible,.arc-hit:focus,.arc-hit:focus-visible{ outline:none; }
 .tick{ stroke:var(--gold-dim); stroke-width:1; opacity:.5; } .tick.major{ stroke:var(--gold); stroke-width:1.3; opacity:.85; }
 .tick-num{ fill:var(--grey); font-family:'DM Mono',monospace; font-size:13px; text-anchor:middle; dominant-baseline:middle; }
 .dc{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; pointer-events:none; }
@@ -292,7 +295,7 @@ nav.scrolled{ background:rgba(10,10,10,.98); border-bottom:1px solid var(--borde
 .panel-block{ border-top:1px solid var(--border); padding:18px 0; }
 .panel-block .bl{ font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-dim); margin-bottom:10px; }
 .panel-block .bx{ font-size:16px; font-weight:300; line-height:1.7; color:var(--grey); }
-.panel-fade{ transition:opacity .3s var(--ease),transform .3s var(--ease); } .panel-fade.swap{ opacity:0; transform:translateY(8px); }
+.panel-fade{ min-height:430px; } /* stable height so the dial doesn't shift while browsing domains */
 .cycle-table{ width:100%; border-collapse:collapse; margin-top:10px; }
 .cycle-table th,.cycle-table td{ text-align:left; padding:16px 18px; border-bottom:1px solid var(--border); font-size:15px; font-weight:300; color:var(--light); }
 .cycle-table th{ font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold-dim); }
@@ -335,6 +338,7 @@ footer{ border-top:1px solid var(--border); padding:42px 44px; display:flex; jus
   .sec{ padding:80px 22px; }
   .cards3,.steps,.stakes-grid,.guide-grid,.feat,.steward,.roles,.dl-grid,.choose,.vows-grid,.get,.stage,.practices{ grid-template-columns:1fr; }
   .guide-grid,.feat,.choose{ gap:44px; } .steward{ gap:28px; padding:32px; }
+  .panel-fade{ min-height:0; }
   .rights-list{ grid-template-columns:1fr 1fr; }
   .prose{ padding:70px 22px; } .page-hero{ min-height:46vh; padding:130px 22px 56px; }
   .cmd{ grid-template-columns:1fr; gap:8px; padding:30px 26px; } .cmd-n{ font-size:36px; }
