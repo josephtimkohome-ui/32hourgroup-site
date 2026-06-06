@@ -124,17 +124,25 @@
       if (panel) panel(idx);
     }
     function render() { paint(selected); }
+    function hl(idx, on) { var a = arcs[idx]; if (a) a.classList.toggle("hl", on); }
     // event targets: the fat hit-areas (fallback to the visual arc) + legend chips
     var nodes = arcs.map(function (a) { return a.hit || a; }).concat(legs);
     nodes.forEach(function (node) {
       var idx = +node.dataset.idx;
-      node.addEventListener("mouseenter", function () { paint(idx); });
-      node.addEventListener("mouseleave", render);
-      node.addEventListener("focus", function () { paint(idx); });
-      node.addEventListener("blur", render);
       if (locking) {
+        // click-to-select: hover only highlights the arc; the panel follows the locked selection
+        node.addEventListener("mouseenter", function () { hl(idx, true); });
+        node.addEventListener("mouseleave", function () { hl(idx, false); });
+        node.addEventListener("focus", function () { hl(idx, true); });
+        node.addEventListener("blur", function () { hl(idx, false); });
         node.addEventListener("click", function () { selected = (selected === idx ? null : idx); paint(selected); });
         node.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selected = (selected === idx ? null : idx); paint(selected); } });
+      } else {
+        // hover-preview (e.g. homepage): panel follows the pointer
+        node.addEventListener("mouseenter", function () { paint(idx); });
+        node.addEventListener("mouseleave", render);
+        node.addEventListener("focus", function () { paint(idx); });
+        node.addEventListener("blur", render);
       }
     });
     paint(null);
@@ -220,7 +228,7 @@
             P.num.textContent = "01 — 05"; P.num.style.color = ""; P.name.textContent = "All Five"; P.name.style.color = "";
             P.range.textContent = "32 hours / cycle";
             P.ess.textContent = "We do not add hours to the day. We restore intention to the time you already have — divided across five domains that, together, make a day whole.";
-            P.bl1.textContent = "The Doctrine"; P.bx1.textContent = "Hover or select any arc of the dial. Each domain has its own weight — and its own cost when neglected.";
+            P.bl1.textContent = "The Doctrine"; P.bx1.textContent = "Select any arc of the dial — or a chip below. Each domain has its own weight, and its own cost when neglected.";
             P.bl2.textContent = "When the cycle breaks"; P.bx2.textContent = "Drop one domain for long enough and the whole cycle desaturates. Sufficiency is the sum of all five.";
             if (P.dcN) { P.dcN.textContent = "32"; P.dcN.style.color = ""; } if (P.dcS) P.dcS.textContent = "One Complete Cycle";
           } else {

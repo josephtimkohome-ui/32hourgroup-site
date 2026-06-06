@@ -108,6 +108,7 @@ nav.scrolled{ background:rgba(10,10,10,.98); border-bottom:1px solid var(--borde
 .track{ fill:none; stroke:var(--border); stroke-width:16; }
 .arc{ fill:none; stroke-width:16; stroke-linecap:butt; transition:stroke-width .55s var(--ease), opacity .55s var(--ease), filter .55s var(--ease); }
 .arc.dim{ opacity:.18; } .arc.active{ stroke-width:24; filter:brightness(1.55) drop-shadow(0 0 14px rgba(240,212,121,.55)); }
+.arc.hl:not(.active){ filter:brightness(1.35); }
 .arc.interactive{ cursor:pointer; }
 .arc-hit{ fill:none; stroke:transparent; pointer-events:stroke; cursor:pointer; }
 /* keyboard focus is shown via the arc glow (paint on focus), not a bounding box */
@@ -287,7 +288,7 @@ nav.scrolled{ background:rgba(10,10,10,.98); border-bottom:1px solid var(--borde
 .closing p{ font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:clamp(28px,4vw,46px); color:var(--gold); }
 
 /* ---------- PRINCIPLES ---------- */
-.stage{ display:grid; grid-template-columns:1.05fr 1fr; gap:60px; align-items:center; }
+.stage{ display:grid; grid-template-columns:1.05fr 1fr; gap:60px; align-items:start; }
 .panel-num{ font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px; color:var(--gold-dim); transition:color .4s var(--ease); }
 .panel-name{ font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,5vw,68px); line-height:1; letter-spacing:2px; color:var(--white); margin:8px 0 6px; transition:color .4s var(--ease); }
 .panel-range{ font-family:'DM Mono',monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:26px; }
